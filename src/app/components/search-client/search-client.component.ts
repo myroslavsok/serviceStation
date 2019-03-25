@@ -18,6 +18,12 @@ export class SearchClientComponent implements OnInit {
 
   clients = [];
 
+  searchValue = {
+    carInfo: {
+      vinCode: ''
+    }
+  };
+
   ngOnInit() {
     this.crudDBService.getClientsArr(() => {
       this.clients = this.crudDBService.clients;

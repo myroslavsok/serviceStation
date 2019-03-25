@@ -1,12 +1,12 @@
 <div class="search__container">
   <mat-form-field appearance="outline" class="input__search__container">
     <mat-label>Пошук по vin-коду</mat-label>
-    <input matInput placeholder="Пошук по vin-коду">
+    <input matInput [(ngModel)]="searchValue.carInfo.vinCode" placeholder="Пошук по vin-коду" autocomplete="off">
     <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>  
+  </mat-form-field>
 </div>
 
-<mat-card *ngFor="let client of clients" class="client__order">
+<mat-card *ngFor="let client of clients | filterBy: searchValue" class="client__order">
   <mat-card-header>
     <mat-card-title class="client__order__title">{{ client.carInfo.vinCode }} (Загальна вартість замовлення {{ client.workInfo.totalCost }} Грн)</mat-card-title>
     <mat-card-subtitle>{{ client.clientInfo.date }}</mat-card-subtitle>

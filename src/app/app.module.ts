@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 //materia design modules
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -51,6 +52,7 @@ import { UserNavbarComponent } from './components/user-navbar/user-navbar.compon
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    FilterPipeModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
