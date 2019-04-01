@@ -28,21 +28,27 @@ import { MatIconModule } from '@angular/material/icon';
 //firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 //servies
 import { crudDBService } from './shared/services/crudDB.service';
+import { authService } from './shared/services/auth.service';
+import { AuthGuardService } from './shared/services/auth-guard.service';
+
 
 //components
 import { AddClientComponent } from './components/add-client/add-client.component';
 import { SearchClientComponent } from './components/search-client/search-client.component';
 import { UserNavbarComponent } from './components/user-navbar/user-navbar.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddClientComponent,
     SearchClientComponent,
-    UserNavbarComponent
+    UserNavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +58,7 @@ import { UserNavbarComponent } from './components/user-navbar/user-navbar.compon
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     FilterPipeModule,
     MatAutocompleteModule,
     MatFormFieldModule,
@@ -69,7 +76,9 @@ import { UserNavbarComponent } from './components/user-navbar/user-navbar.compon
     MatIconModule
   ],
   providers: [
-    crudDBService
+    crudDBService,
+    authService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

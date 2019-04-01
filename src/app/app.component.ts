@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // import { crudDBService } from './services/crudDB.service';
 import { crudDBService } from './shared/services/crudDB.service';
+import { authService } from './shared/services/auth.service';
 // import { map } from 'rxjs/operators';
 
 //models
@@ -15,7 +16,14 @@ import { crudDBService } from './shared/services/crudDB.service';
 
 export class AppComponent implements OnInit {
 
-  constructor(private crudDBService: crudDBService) { }
+  constructor(
+    private crudDBService: crudDBService,
+    private authService: authService
+  ) { }
+
+  logout() {
+    this.authService.logout();
+  }
 
   // cars: Array<Car>;
 
