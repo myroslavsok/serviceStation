@@ -36,14 +36,6 @@ export class crudDBService {
   }
 
   getCarsArr(callback) {
-  //   // Use snapshotChanges().map() to store the key
-  //   // this.crudDBService.getCarsList().snapshotChanges().pipe(
-  //   //   map(changes =>
-  //   //     changes.map(item => ({ key: item.payload.key, ...item.payload.val() }))
-  //   //   )
-  //   // ).subscribe(cars => {
-  //   //   this.cars = cars;
-  //   // });
     this.carsList.snapshotChanges().subscribe(
       list => {
         this.cars = list.map(item => {
