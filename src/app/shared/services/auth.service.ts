@@ -41,6 +41,12 @@ export class AuthService {
     }
   }
 
+  // Sign in regular
+  signInRegular(email, password) {
+    const credential = firebase.auth.EmailAuthProvider.credential( email, password );
+    return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+  }
+
   logout() {
     this._firebaseAuth.auth.signOut()
       .then((res) => this.router.navigate(['login'])).catch(err => this.handleError(err));
@@ -49,12 +55,6 @@ export class AuthService {
   private handleError(error) {
     console.log(error);
     alert('Помилка відправки-отримання інформації з серверу');
-  }
-
-  // Sign in regular
-  signInRegular(email, password) {
-    const credential = firebase.auth.EmailAuthProvider.credential( email, password );
-    return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
   }
 
 }

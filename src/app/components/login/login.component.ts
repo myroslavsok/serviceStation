@@ -39,14 +39,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   // Login with google
-  signInWithGoogle() {
-    this.authService.signInWithGoogle()
-    .then(res => {
-        // this.router.navigate(['add-client']);
-        // ngZone.run();
-        this.ngZone.run(() => this.router.navigate(['add-client'])).then();
-      })
-    .catch(err => console.log(err));
-  }
+  // signInWithGoogle() {
+  //   this.authService.signInWithGoogle()
+  //   .then(res => {
+  //       // this.router.navigate(['add-client']);
+  //       // ngZone.run();
+  //       this.ngZone.run(() => this.router.navigate(['add-client'])).then();
+  //     })
+  //   .catch(err => console.log(err));
+  // }
 
 }
