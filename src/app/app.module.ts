@@ -1,4 +1,4 @@
-//angular modules
+// Angular modules
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 
-//materia design modules
+// Materia design modules
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -25,18 +25,18 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 
-//firebase
+// Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-//servies
+// Servies
 import { crudDBService } from './shared/services/crudDB.service';
-import { authService } from './shared/services/auth.service';
+import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 
 
-//components
+// Components
 import { AddClientComponent } from './components/add-client/add-client.component';
 import { SearchClientComponent } from './components/search-client/search-client.component';
 import { UserNavbarComponent } from './components/user-navbar/user-navbar.component';
@@ -77,7 +77,7 @@ import { LoginComponent } from './components/login/login.component';
   ],
   providers: [
     crudDBService,
-    authService,
+    AuthService,
     AuthGuardService
   ],
   bootstrap: [AppComponent]

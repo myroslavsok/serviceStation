@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // import { crudDBService } from './services/crudDB.service';
 import { crudDBService } from './shared/services/crudDB.service';
-import { authService } from './shared/services/auth.service';
+import { AuthService } from './shared/services/auth.service';
 // import { map } from 'rxjs/operators';
 
 //models
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private crudDBService: crudDBService,
-    private authService: authService
+    private authService: AuthService
   ) { }
 
   logout() {

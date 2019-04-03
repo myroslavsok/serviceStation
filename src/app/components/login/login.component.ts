@@ -1,6 +1,6 @@
 import { Component, OnInit, HostBinding, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
-import { authService } from '../../shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 
 
@@ -13,13 +13,32 @@ import { authService } from '../../shared/services/auth.service';
 
 export class LoginComponent implements OnInit {
 
+  // Login with email and pass
+  user = {
+    email: 'beztormoza@ukr.net',
+    password: '123456'
+  };
+
+  signInWithEmail() {
+    this.authService.signInRegular(this.user.email, this.user.password)
+      .then((res) => {
+        console.log(res);
+        this.router.navigate(['add-client']);
+      })
+      .catch((err) => {
+        alert('error: ' + err);
+        console.log('error: ' + err);
+      });
+  }
+
   constructor(
     private router: Router,
-    private authService: authService,
+    private authService: AuthService,
     private ngZone: NgZone) {}
 
   ngOnInit() {}
 
+  // Login with google
   signInWithGoogle() {
     this.authService.signInWithGoogle()
     .then(res => {
