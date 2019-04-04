@@ -156,7 +156,7 @@ export class AddClientComponent implements OnInit {
       clientInfo: form.value.clientInfo,
       carInfo: form.value.carInfo,
       workInfo: form.value.workInfo
-    }
+    };
     client.clientInfo.date = this.orderDate.nativeElement.value;
     client.carInfo.marque = this.marqueControl.value;
     client.carInfo.model = this.modelControl.value;
@@ -187,7 +187,7 @@ export class AddClientComponent implements OnInit {
     if (!addClientForm.valid) {
       return this.snackBar.open(`Поле "Vin-код" є обов'язковим`, 'Ок', {
         duration: 2000,
-      }); 
+      });
     }
     let client = this.createClient(addClientForm);
     this.addCarToDBIfNotExists(client.carInfo.marque, client.carInfo.model);
@@ -198,9 +198,9 @@ export class AddClientComponent implements OnInit {
       this.crudDBService.addClient(client);
       this.snackBar.open('Клієнт успішно доданий до бази', 'Ок', {
         duration: 2000,
-      }); 
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return alert('Помилка при спробі додати інформацію про замовлення клієнта: ' + error + ' Спробуйте заповнити усі поля');
     }
   }

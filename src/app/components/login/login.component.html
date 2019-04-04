@@ -5,11 +5,41 @@
 <!--  </button>-->
 <!--</div>-->
 
-<div class="form-group">
-  <input type="email" placeholder="email" [(ngModel)]="user.email">
-  <br>
-  <input type="password" placeholder="password" [(ngModel)]="user.password">
-  <button type="buton" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signInWithEmail()">
-    Login with Email
-  </button>
-</div>
+<!--<div class="form-group">-->
+<!--  <input type="email" placeholder="email" [(ngModel)]="user.email">-->
+<!--  <br>-->
+<!--  <input type="password" placeholder="password" [(ngModel)]="user.password">-->
+<!--  <button type="buton" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signInWithEmail()">-->
+<!--    Login with Email-->
+<!--  </button>-->
+<!--</div>-->
+
+
+<mat-card class="login__card">
+  <mat-card-title class="login__title">Login</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Електронна пошта"
+        [(ngModel)]="user.email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Пароль"
+        [(ngModel)]="user.password">
+    </mat-form-field>
+
+    <button
+      type="submit"
+      mat-button
+      class="btn btn-primary btn-block"
+      (click)="signInWithEmail()"
+    >Увійти
+    </button>
+  </mat-card-content>
+</mat-card>

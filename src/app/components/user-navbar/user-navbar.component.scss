@@ -3,7 +3,7 @@
 nav {
   @include display-flex(row, space-around, center);
   width: 100%;
-  height: $navbar-height;
+  height: 60px;
   background-color: $material-blue;
 
   button {
@@ -12,13 +12,16 @@ nav {
     margin: 5px;
     color: white;
     font-weight: bold;
-    transition: all .3s linear;
+    transition: background-color .3s linear;
 
     &:hover {
       background-color: $material-blue-dark;
     }
 
-
+    &.active__link {
+      background-color: $material-blue-dark;
+      border-bottom: 2px solid white;
+    }
   }
 }
 
