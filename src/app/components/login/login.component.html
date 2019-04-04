@@ -1,45 +1,32 @@
-<!--<div class="form-group">-->
-<!--<button type="button" class="btn btn-block" (click)="signInWithGoogle()">-->
-<!--    <i class="fa fa-google" aria-hidden="true"></i>-->
-<!--    Login with Google-->
-<!--  </button>-->
-<!--</div>-->
-
-<!--<div class="form-group">-->
-<!--  <input type="email" placeholder="email" [(ngModel)]="user.email">-->
-<!--  <br>-->
-<!--  <input type="password" placeholder="password" [(ngModel)]="user.password">-->
-<!--  <button type="buton" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signInWithEmail()">-->
-<!--    Login with Email-->
-<!--  </button>-->
-<!--</div>-->
-
-
-<mat-card class="login__card">
-  <mat-card-title class="login__title">Login</mat-card-title>
-  <mat-card-content>
-    <mat-form-field>
-      <input
-        type="email"
-        matInput
-        placeholder="Електронна пошта"
-        [(ngModel)]="user.email">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input
-        type="password"
-        matInput
-        placeholder="Пароль"
-        [(ngModel)]="user.password">
-    </mat-form-field>
-
-    <button
-      type="submit"
-      mat-button
-      class="btn btn-primary btn-block"
-      (click)="signInWithEmail()"
-    >Увійти
-    </button>
-  </mat-card-content>
-</mat-card>
+<div class="main__container">
+  <mat-card class="login__card">
+    <mat-card-header>
+      <mat-card-title class="login__title">Service Station IS</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="login__content">
+      <mat-form-field class="login__field">
+        <input
+          type="email"
+          matInput
+          placeholder="Електронна пошта"
+          [(ngModel)]="user.email">
+      </mat-form-field>
+      <mat-form-field class="login__field">
+        <input
+          type="password"
+          matInput
+          placeholder="Пароль"
+          [(ngModel)]="user.password">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="login__control__panel">
+      <button
+        type="submit"
+        mat-button
+        class="login__btn"
+        (click)="signInWithEmail()"
+      >Вхід
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

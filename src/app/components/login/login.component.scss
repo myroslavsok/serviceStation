@@ -1,22 +1,32 @@
-:host {
-  display: flex;
-  justify-content: center;
-  margin: 100px 0px;
-  background-color: #28A745;
-}
+@import "../../shared/scss-variables-mixins/variables-mixins.scss";
 
-.mat-form-field {
+.main__container {
   width: 100%;
-  min-width: 300px;
-}
-
-mat-card-title,
-mat-card-content {
+  height: 100%;
   display: flex;
   justify-content: center;
-}
+  align-items: center;
+  background-image:
+    linear-gradient(to right top, #acaced, #9d9ce6, #8f8cde, #817dd6, #736dce, #6b63d0, #6259d1, #5a4fd2, #5546dd, #503de7, #4b30f1, #471ffa);
 
-.button {
-  display: flex;
-  justify-content: flex-end;
+  .login__card {
+    @include max-width(350px);
+    margin: 50px;
+    height: 200px;
+    .login__content {
+      @include display-flex(column, space-around, center);
+      .login__field {
+        width: 100%;
+        min-width: 300px;
+      }
+    }
+    .login__control__panel {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .login__btn {
+      background-color: $material-green;
+      color: white;
+    }
+  }
 }
