@@ -6,6 +6,7 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 import { AddClientComponent } from './components/add-client/add-client.component';
 import { SearchClientComponent } from './components/search-client/search-client.component';
 import { LoginComponent } from './components/login/login.component';
+import {AccountSettingsComponent} from './components/account-settings/account-settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'add-client', component: AddClientComponent, canActivate: [AuthGuardService] },
   { path: 'search-clients', component: SearchClientComponent, canActivate: [AuthGuardService] },
+  { path: 'account-setting', component: AccountSettingsComponent, canActivate: [AuthGuardService] },
   // { path: '**', redirectTo: 'add-client', pathMatch: 'full' },
   { path: '**', redirectTo: 'login', pathMatch: 'full' }
 

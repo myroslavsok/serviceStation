@@ -41,6 +41,7 @@ import { AddClientComponent } from './components/add-client/add-client.component
 import { SearchClientComponent } from './components/search-client/search-client.component';
 import { UserNavbarComponent } from './components/user-navbar/user-navbar.component';
 import { LoginComponent } from './components/login/login.component';
+import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { LoginComponent } from './components/login/login.component';
     AddClientComponent,
     SearchClientComponent,
     UserNavbarComponent,
-    LoginComponent
+    LoginComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
