@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
 
   // Login with email and pass
   user = {
-    email: '',
-    password: ''
+    email: 'beztormoza@ukr.net',
+    password: '123456'
   };
 
   signInWithEmail() {
