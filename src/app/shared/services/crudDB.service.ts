@@ -1,7 +1,7 @@
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 
-//Models
+// Models
 import { Car } from '../models/car';
 import { CarNgListElem } from '../models/carNgListElem';
 
@@ -74,7 +74,12 @@ export class crudDBService {
   }
 
   deleteClient(key) {
+    // this.closeClientOrder(key);
     this.clientsList.remove(key).catch(error => this.handleError(error));
+  }
+
+  closeClientOrder(key) {
+    console.log('clients in service', this.clients);
   }
 
   private handleError(error) {

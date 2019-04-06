@@ -1,8 +1,8 @@
-import { crudDBService } from './../../shared/services/crudDB.service';
+import { crudDBService } from '../../shared/services/crudDB.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, startWith, filter } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
 
 // Imports for date
@@ -58,7 +58,7 @@ export class AddClientComponent implements OnInit {
     cost;
   }> = [];
 
-  totalDetailCost: number = 0;
+  totalDetailCost = 0;
 
   date = new FormControl(moment());
 
@@ -152,7 +152,7 @@ export class AddClientComponent implements OnInit {
   }
 
   createClient(form) {
-    let client = {
+    const client = {
       clientInfo: form.value.clientInfo,
       carInfo: form.value.carInfo,
       workInfo: form.value.workInfo
@@ -166,14 +166,15 @@ export class AddClientComponent implements OnInit {
       client.workInfo.workCost = 0;
     }
     client.workInfo.totalCost = +client.workInfo.workCost + +client.workInfo.detailCost;
+    client.clientInfo.status = 'new';
     return client;
   }
 
   setDefaultValuesForEmptyFormFields(client) {
     for (let categoryKey in client) {
       for (let key in client[categoryKey]) {
-        if (key != 'workCost' && key != 'detailCost' && key != 'totalCost' && key != 'details') {
-          if(!client[categoryKey][key]) {
+        if (key !== 'workCost' && key !== 'detailCost' && key !== 'totalCost' && key !== 'details') {
+          if (!client[categoryKey][key]) {
             client[categoryKey][key] = 'Не вказано';
           }
         }
@@ -223,7 +224,7 @@ export class AddClientComponent implements OnInit {
 
   deleteDetail(carDetailId) {
     this.carsDetails = this.carsDetails.filter(detail => {
-      return (detail.id === carDetailId) ? false : true;
+      return (detail.id !== carDetailId);
     });
     this.calculateTotalDetailCost();
   }
