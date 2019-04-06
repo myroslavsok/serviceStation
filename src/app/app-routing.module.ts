@@ -14,10 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'add-client', component: AddClientComponent, canActivate: [AuthGuardService] },
   { path: 'search-clients', component: SearchClientComponent, canActivate: [AuthGuardService] },
-  { path: 'account-setting', component: AccountSettingsComponent, canActivate: [AuthGuardService] },
-  // { path: '**', redirectTo: 'add-client', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' }
-
+  { path: 'account-setting', component: AccountSettingsComponent, canActivate: [AuthGuardService] }
+  // { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
