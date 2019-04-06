@@ -6,7 +6,7 @@ import {Car} from '../models/car';
 import {CarNgListElem} from '../models/carNgListElem';
 
 @Injectable()
-export class crudDBService {
+export class СrudDBService {
 
   private dbPathCars = '/cars';
   private dbPathClients = '/clients';

@@ -1,5 +1,5 @@
 // Angular modules
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -31,7 +31,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // Servies
-import { crudDBService } from './shared/services/crudDB.service';
+import { СrudDBService } from './shared/services/сrud-d-b.service';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 
@@ -78,7 +78,7 @@ import { AccountSettingsComponent } from './components/account-settings/account-
     MatIconModule
   ],
   providers: [
-    crudDBService,
+    СrudDBService,
     AuthService,
     AuthGuardService
   ],

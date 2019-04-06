@@ -1,4 +1,4 @@
-import { crudDBService } from '../../shared/services/crudDB.service';
+import { СrudDBService } from '../../shared/services/сrud-d-b.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -36,7 +36,7 @@ export const MY_FORMATS = {
 
 export class AddClientComponent implements OnInit {
 
-  constructor(private crudDBService: crudDBService,
+  constructor(private crudDBService: СrudDBService,
               private snackBar: MatSnackBar) { }
 
   marqueControl = new FormControl();

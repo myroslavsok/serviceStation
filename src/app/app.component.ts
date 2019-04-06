@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-// import { crudDBService } from './services/crudDB.service';
-import { crudDBService } from './shared/services/crudDB.service';
+// import { СrudDBService } from './services/crudDB.service';
+import { СrudDBService } from './shared/services/сrud-d-b.service';
 import { AuthService } from './shared/services/auth.service';
 // import { map } from 'rxjs/operators';
 
@@ -17,7 +17,7 @@ import { AuthService } from './shared/services/auth.service';
 export class AppComponent implements OnInit {
 
   constructor(
-    private crudDBService: crudDBService,
+    private crudDBService: СrudDBService,
     private authService: AuthService
   ) { }
 
@@ -31,24 +31,24 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // this.getCarsList();
 
-    //to delete
+    // To delete
     // this.addCars();
   }
 
 
   // addCars(): void {
-  //   this.crudDBService.addCar({
+  //   this.СrudDBService.addCar({
   //     marque: 'Acura',
   //     model: ['CL', 'EL', 'Integra', 'DX', 'NSX', 'RDX', 'RL', 'RSX', 'TL', 'TSX' ]
   //   });
-  //   this.crudDBService.addCar({
+  //   this.СrudDBService.addCar({
   //     marque: 'Alfa Romeo',
   //     model: ['33', '75', '145', '146', '147', '155', '156', '159', '164', '166', 'Alfetta', 'Brera', 'GT', 'GTV', 'Giulietta', 'Spider']
   //   });
   // }
 
   // addCar(name, year) {
-  //   this.crudDBService.addCar({
+  //   this.СrudDBService.addCar({
   //     name: name.value,
   //     year: year.value
   //   });
@@ -61,14 +61,8 @@ export class AppComponent implements OnInit {
   // }
 
   // deleteCars() {
-  //   this.crudDBService.clearCarList();
+  //   this.СrudDBService.clearCarList();
   // }
-
-
-  //TEST
-
-
-
 }
 
 

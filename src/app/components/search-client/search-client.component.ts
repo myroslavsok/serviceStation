@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 
-import { crudDBService } from '../../shared/services/crudDB.service';
+import { СrudDBService } from '../../shared/services/сrud-d-b.service';
 
 @Component({
   selector: 'app-search-client',
@@ -11,7 +11,7 @@ import { crudDBService } from '../../shared/services/crudDB.service';
 export class SearchClientComponent implements OnInit {
 
   constructor(
-    private crudDBService: crudDBService,
+    private crudDBService: СrudDBService,
     private snackBar: MatSnackBar
   ) {}
 
