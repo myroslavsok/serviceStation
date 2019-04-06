@@ -9,7 +9,7 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 
 export class LoginComponent implements OnInit {
-
+  hide = true;
   // Login with email and pass
   user = {
     email: 'beztormoza@ukr.net',
@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService,
-    private ngZone: NgZone) {}
+    private authService: AuthService) {}
 
   ngOnInit() {}
 
   // Login with google
+  //   constructor(private ngZone: NgZone) {}
   // signInWithGoogle() {
   //   this.authService.signInWithGoogle()
   //   .then(res => {
