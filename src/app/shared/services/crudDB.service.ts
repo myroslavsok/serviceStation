@@ -1,9 +1,9 @@
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Injectable } from '@angular/core';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import {Injectable} from '@angular/core';
 
 // Models
-import { Car } from '../models/car';
-import { CarNgListElem } from '../models/carNgListElem';
+import {Car} from '../models/car';
+import {CarNgListElem} from '../models/carNgListElem';
 
 @Injectable()
 export class crudDBService {
@@ -18,21 +18,25 @@ export class crudDBService {
   clients: Array<any> = null;
 
   constructor(private firebase: AngularFireDatabase) {
-              this.carsList = this.firebase.list(this.dbPathCars);
-              this.clientsList = this.firebase.list(this.dbPathClients);
+    this.carsList = this.firebase.list(this.dbPathCars);
+    this.clientsList = this.firebase.list(this.dbPathClients);
   }
 
   // CRUD with cars
   addCar(car: CarNgListElem): void {
     // console.log('[Service] car add', car);
-    this.carsList.push(car).catch(error => this.handleError(error));
+    this.carsList
+      .push(car)
+      .catch(error => this.handleError(error));
   }
 
-  addModelToCar(car: {key: string, model: Array<string>}): void {
+  addModelToCar(car: { key: string, model: Array<string> }): void {
     // console.log('[Service] uppdating models', car);
-    this.carsList.update(car.key, {
-      model: car.model
-    }).catch(error => this.handleError(error));
+    this.carsList
+      .update(car.key, {
+        model: car.model
+      })
+      .catch(error => this.handleError(error));
   }
 
   getCarsArr(callback) {
@@ -50,9 +54,10 @@ export class crudDBService {
   }
 
   clearCarList(): void {
-    this.carsList.remove().catch(error => this.handleError(error));
+    this.carsList
+      .remove()
+      .catch(error => this.handleError(error));
   }
-
 
   // CRUD with clients
   getClientsArr(callback) {
@@ -70,21 +75,26 @@ export class crudDBService {
   }
 
   addClient(client: any) {
-    this.clientsList.push(client).catch(error => this.handleError(error));
+    this.clientsList
+      .push(client)
+      .catch(error => this.handleError(error));
   }
 
   deleteClient(key) {
-    // this.closeClientOrder(key);
     this.clientsList.remove(key).catch(error => this.handleError(error));
   }
 
-  closeClientOrder(key) {
-    console.log('clients in service', this.clients);
+  closeOpenClientOrder(updatedClient) {
+    const key = updatedClient.key;
+    this.firebase.object(this.dbPathClients + `/${key}`)
+      .update(updatedClient)
+      .catch(error => this.handleError(error));
+    console.log('clients after open-close', this.clients);
   }
 
   private handleError(error) {
     console.log(error);
-    alert('Помилка відправки-отримання інформації з серверу: ' +  error);
+    alert('Помилка на сервері (тех підтримка beztormoza@ukr.net): ' + error);
   }
 
 }

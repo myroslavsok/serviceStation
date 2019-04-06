@@ -166,7 +166,7 @@ export class AddClientComponent implements OnInit {
       client.workInfo.workCost = 0;
     }
     client.workInfo.totalCost = +client.workInfo.workCost + +client.workInfo.detailCost;
-    client.clientInfo.status = 'new';
+    client.clientInfo.status = 'open';
     return client;
   }
 

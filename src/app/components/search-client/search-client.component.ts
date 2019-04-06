@@ -20,6 +20,9 @@ export class SearchClientComponent implements OnInit {
   searchValue = {
     carInfo: {
       vinCode: ''
+    },
+    clientInfo: {
+      status: 'open'
     }
   };
 
@@ -30,11 +33,18 @@ export class SearchClientComponent implements OnInit {
     });
   }
 
-  deleteClient(key) {
-    this.crudDBService.deleteClient(key);
-    this.snackBar.open('Успішно видалено', 'Зрозуміло', {
+  changeStatusOfClient(client) {
+    const status = client.clientInfo.status;
+    if (status === 'closed') {
+      client.clientInfo.status = 'open';
+    } else {
+      client.clientInfo.status = 'closed';
+    }
+    this.crudDBService
+      .closeOpenClientOrder(client);
+    this.snackBar.open('Статус замовлення змінено', 'Ок', {
         duration: 2000,
-      });
+    });
   }
 
 }

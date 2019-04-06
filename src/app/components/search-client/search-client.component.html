@@ -1,10 +1,5 @@
 <app-user-navbar></app-user-navbar>
 
-<div class="main__container">
-
-
-</div>
-
 <div class="search__container">
   <mat-form-field appearance="outline" class="input__search__container">
     <mat-label>Пошук по vin-коду</mat-label>
@@ -13,9 +8,20 @@
   </mat-form-field>
 </div>
 
-<mat-card *ngFor="let client of clients | filterBy: searchValue" class="client__order">
+<mat-button-toggle-group
+  [(ngModel)]="searchValue.clientInfo.status"
+  #statusGroup="matButtonToggleGroup"
+  [value]="searchValue.clientInfo.status"
+  class="status__filter">
+  <mat-button-toggle value="open">Актуальні</mat-button-toggle>
+  <mat-button-toggle value="close">Виконанні</mat-button-toggle>
+</mat-button-toggle-group>
+
+<mat-card *ngFor="let client of clients | filterBy: searchValue" class="client__order" [class.is__closed]="client.clientInfo.status === 'closed'">
   <mat-card-header>
-    <mat-card-title class="client__order__title">{{ client.carInfo.vinCode }} (Загальна вартість замовлення {{ client.workInfo.totalCost }} Грн)</mat-card-title>
+    <mat-card-title class="client__order__title">{{ client.carInfo.vinCode }} (Загальна вартість
+      замовлення {{ client.workInfo.totalCost }} Грн)
+    </mat-card-title>
     <mat-card-subtitle>{{ client.clientInfo.date }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -90,6 +96,17 @@
     </mat-expansion-panel>
   </mat-card-content>
   <mat-card-actions class="control__panel">
-    <button mat-button class="delete__order__btn" (click)="deleteClient(client.key)">Видалити замовлення</button>
+    <button
+      *ngIf="client.clientInfo.status === 'closed'; else newOrder"
+      mat-button
+      class="restore__order__btn"
+      (click)="changeStatusOfClient(client)"
+    >Вітмітики як актуальне
+    </button>
+    <ng-template #newOrder>
+      <button mat-button class="close__order__btn" (click)="changeStatusOfClient(client)">Відмітити як виконане</button>
+    </ng-template>
+
+<!--    <button mat-button class="delete__order__btn" (click)="changeStatusOfClient(client)">Відмітити як виконане</button>-->
   </mat-card-actions>
 </mat-card>
