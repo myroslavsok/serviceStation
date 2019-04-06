@@ -12,7 +12,7 @@
   .login__card {
     @include max-width(350px);
     margin: 50px;
-    height: 200px;
+    min-height: 220px;
     .login__content {
       @include display-flex(column, space-around, center);
       .login__field {
@@ -22,14 +22,27 @@
     }
     .login__control__panel {
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .login__btn {
+      width: 100%;
       background-color: $material-green;
       color: white;
     }
     .password__field__icon {
       cursor: pointer;
     }
+  }
+}
+
+.forget__password {
+  color: #471ffa;
+  font-size: 14px;
+  margin: 10px 0;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }

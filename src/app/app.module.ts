@@ -24,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -75,7 +76,8 @@ import { AccountSettingsComponent } from './components/account-settings/account-
     MatDatepickerModule,
     MatExpansionModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
   ],
   providers: [
     СrudDBService,

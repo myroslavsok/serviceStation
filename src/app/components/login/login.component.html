@@ -24,6 +24,7 @@
           {{hide ? 'visibility_off' : 'visibility'}}
         </mat-icon>
       </mat-form-field>
+      <mat-checkbox>Запам'ятати</mat-checkbox>
     </mat-card-content>
     <mat-card-actions class="login__control__panel">
       <button
@@ -33,6 +34,7 @@
         (click)="signInWithEmail()"
       >Вхід
       </button>
+      <span class="forget__password">Забули пароль?</span>
     </mat-card-actions>
   </mat-card>
 </div>
