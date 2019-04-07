@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-
 import { СrudDBService } from '../../shared/services/сrud-d-b.service';
 
 @Component({

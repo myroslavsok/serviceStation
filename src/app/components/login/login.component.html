@@ -17,14 +17,14 @@
           type="password"
           placeholder="Пароль"
           [(ngModel)]="user.password"
-          [type]="hide ? 'password' : 'text'">
+          [type]="hidePassword ? 'password' : 'text'">
         <mat-icon
           class="password__field__icon"
-          matSuffix (click)="hide = !hide">
-          {{hide ? 'visibility_off' : 'visibility'}}
+          matSuffix (click)="hidePassword = !hidePassword">
+          {{hidePassword ? 'visibility_off' : 'visibility'}}
         </mat-icon>
       </mat-form-field>
-      <mat-checkbox>Запам'ятати</mat-checkbox>
+      <mat-checkbox (click)="setTrueFalseForRememberPassword()">Запам'ятати</mat-checkbox>
     </mat-card-content>
     <mat-card-actions class="login__control__panel">
       <button

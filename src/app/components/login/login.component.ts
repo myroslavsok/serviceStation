@@ -1,26 +1,37 @@
-import { Component, OnInit, HostBinding, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../shared/services/auth.service';
+import {Component, OnInit, NgZone} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../../shared/services/auth.service';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent implements OnInit {
-  hide = true;
+  hidePassword = true;
+  rememberPassword = false;
+
   // Login with email and pass
   user = {
-    email: 'beztormoza@ukr.net',
-    password: '123456'
+    email: '',
+    password: ''
   };
 
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private ngZone: NgZone) {
+  }
+
   signInWithEmail() {
+    if (this.rememberPassword) {
+      this.saveCredentialsToLocalStorage();
+    }
     this.authService.signInRegular(this.user.email, this.user.password)
       .then((res) => {
         console.log(res);
-        this.router.navigate(['add-client']);
+        this.ngZone.run(() => this.router.navigate(['add-client'])).then();
       })
       .catch((err) => {
         alert('error: ' + err);
@@ -28,22 +39,25 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  constructor(
-    private router: Router,
-    private authService: AuthService) {}
+  saveCredentialsToLocalStorage() {
+    const savedUser = {
+      email: this.user.email,
+      password: this.user.password
+    };
+    const userToLS = JSON.stringify(savedUser);
+    localStorage.setItem('ssisc', userToLS);
+  }
 
-  ngOnInit() {}
+  setTrueFalseForRememberPassword() {
+    this.rememberPassword = !this.rememberPassword;
+  }
 
-  // Login with google
-  //   constructor(private ngZone: NgZone) {}
-  // signInWithGoogle() {
-  //   this.authService.signInWithGoogle()
-  //   .then(res => {
-  //       // this.router.navigate(['add-client']);
-  //       // ngZone.run();
-  //       this.ngZone.run(() => this.router.navigate(['add-client'])).then();
-  //     })
-  //   .catch(err => console.log(err));
-  // }
-
+  ngOnInit() {
+    const savedCredentials = JSON.parse(localStorage.getItem('ssisc'));
+    if (savedCredentials) {
+      this.user.email = savedCredentials.email;
+      this.user.password = savedCredentials.password;
+      this.signInWithEmail();
+    }
+  }
 }
