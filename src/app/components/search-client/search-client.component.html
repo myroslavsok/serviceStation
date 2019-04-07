@@ -101,12 +101,10 @@
       mat-button
       class="restore__order__btn"
       (click)="changeStatusOfClient(client)"
-    >Вітмітики як актуальне
+    >Відмітити як актуальне
     </button>
     <ng-template #newOrder>
       <button mat-button class="close__order__btn" (click)="changeStatusOfClient(client)">Відмітити як виконане</button>
     </ng-template>
-
-<!--    <button mat-button class="delete__order__btn" (click)="changeStatusOfClient(client)">Відмітити як виконане</button>-->
   </mat-card-actions>
 </mat-card>
