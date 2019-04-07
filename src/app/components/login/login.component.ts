@@ -1,6 +1,8 @@
 import {Component, OnInit, NgZone} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../shared/services/auth.service';
+import {ForgotPasswordDialogComponent} from './module-windows/forgot-password';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +23,17 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
+    public dialog: MatDialog,
     private ngZone: NgZone) {
+  }
+
+  ngOnInit() {
+    const savedCredentials = JSON.parse(localStorage.getItem('ssisc'));
+    if (savedCredentials) {
+      this.user.email = savedCredentials.email;
+      this.user.password = savedCredentials.password;
+      this.signInWithEmail();
+    }
   }
 
   signInWithEmail() {
@@ -52,12 +64,8 @@ export class LoginComponent implements OnInit {
     this.rememberPassword = !this.rememberPassword;
   }
 
-  ngOnInit() {
-    const savedCredentials = JSON.parse(localStorage.getItem('ssisc'));
-    if (savedCredentials) {
-      this.user.email = savedCredentials.email;
-      this.user.password = savedCredentials.password;
-      this.signInWithEmail();
-    }
+  forgotPassword() {
+    this.dialog.open(ForgotPasswordDialogComponent, {width: '400px'});
   }
+
 }

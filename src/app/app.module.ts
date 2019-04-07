@@ -25,6 +25,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -35,6 +36,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { СrudDBService } from './shared/services/сrud-d-b.service';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
+import { ForgotPasswordDialogComponent } from './components/login/module-windows/forgot-password';
 
 
 // Components
@@ -51,6 +53,7 @@ import { AccountSettingsComponent } from './components/account-settings/account-
     SearchClientComponent,
     UserNavbarComponent,
     LoginComponent,
+    ForgotPasswordDialogComponent,
     AccountSettingsComponent
   ],
   imports: [
@@ -77,7 +80,11 @@ import { AccountSettingsComponent } from './components/account-settings/account-
     MatExpansionModule,
     MatTableModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ForgotPasswordDialogComponent
   ],
   providers: [
     СrudDBService,

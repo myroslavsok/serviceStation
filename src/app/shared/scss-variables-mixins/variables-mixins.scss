@@ -1,11 +1,11 @@
-//common variables
+// Common variables
 $material-blue: #3F51B5;
 $material-blue-dark: #002984;
 $material-green: #28A745;
 $material-red: #d9534f;
 $material-background-color: #B3E7FA; //delete
 
-//common mixins
+// Common mixins
 @mixin display-flex($layout, $main-axis, $secondary-axis) {
   display: flex;
   flex-direction: $layout;
