@@ -39,6 +39,8 @@ export class AddClientComponent implements OnInit {
   constructor(private crudDBService: СrudDBService,
               private snackBar: MatSnackBar) { }
 
+  // public capitalLettersOnly = {'B': { pattern: new RegExp('^[A-Z\\d&Ñ]+$')}};
+
   marqueControl = new FormControl();
   modelControl = new FormControl();
 
@@ -229,7 +231,8 @@ export class AddClientComponent implements OnInit {
   calculateTotalDetailCost() {
     let detailCost = 0;
     this.carsDetails.forEach(detail => {
-      detailCost += parseInt(detail.cost, 10);
+      const cost = detail.cost.replace(/\s/g, '');
+      detailCost += parseInt(cost, 10);
     });
     this.totalDetailCost = detailCost;
   }

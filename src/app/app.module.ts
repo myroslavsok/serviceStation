@@ -36,8 +36,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { СrudDBService } from './shared/services/сrud-d-b.service';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
-import { ForgotPasswordDialogComponent } from './components/login/module-windows/forgot-password';
-
+import { NgxMaskModule } from 'ngx-mask';
 
 // Components
 import { AddClientComponent } from './components/add-client/add-client.component';
@@ -45,6 +44,8 @@ import { SearchClientComponent } from './components/search-client/search-client.
 import { UserNavbarComponent } from './components/user-navbar/user-navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
+import { ForgotPasswordDialogComponent } from './components/login/module-windows/forgot-password';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AccountSettingsComponent } from './components/account-settings/account-
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    NgxMaskModule.forRoot(),
     FilterPipeModule,
     MatAutocompleteModule,
     MatFormFieldModule,
