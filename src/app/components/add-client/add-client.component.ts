@@ -40,7 +40,6 @@ export class AddClientComponent implements OnInit {
               private snackBar: MatSnackBar) { }
 
   // public capitalLettersOnly = {'B': { pattern: new RegExp('^[A-Z\\d&Ñ]+$')}};
-
   marqueControl = new FormControl();
   modelControl = new FormControl();
 
