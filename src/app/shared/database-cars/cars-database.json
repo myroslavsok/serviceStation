@@ -1,6 +1,6 @@
 [
   {
-      "marque_name": "Acura",
+      "marque": "Acura",
       "models": [
           "CL",
           "EL",
@@ -15,7 +15,7 @@
       ]
   },
   {
-      "marque_name": "Alfa Romeo",
+      "marque": "Alfa Romeo",
       "models": [
           "33",
           "75",
@@ -36,7 +36,7 @@
       ]
   },
   {
-      "marque_name": "Alpina",
+      "marque": "Alpina",
       "models": [
           "B11",
           "B12",
@@ -47,20 +47,20 @@
       ]
   },
   {
-      "marque_name": "Aro",
+      "marque": "Aro",
       "models": [
           "10",
           "24"
       ]
   },
   {
-      "marque_name": "Asia",
+      "marque": "Asia",
       "models": [
           "Rocsta"
       ]
   },
   {
-      "marque_name": "Aston Martin",
+      "marque": "Aston Martin",
       "models": [
           "DB7",
           "DB9",
@@ -70,7 +70,7 @@
       ]
   },
   {
-      "marque_name": "Audi",
+      "marque": "Audi",
       "models": [
           "80",
           "90",
@@ -101,7 +101,7 @@
       ]
   },
   {
-      "marque_name": "Austin",
+      "marque": "Austin",
       "models": [
           "Metro",
           "Mini MK",
@@ -109,7 +109,7 @@
       ]
   },
   {
-      "marque_name": "Bentley",
+      "marque": "Bentley",
       "models": [
           "Arnage",
           "Azure",
@@ -120,7 +120,7 @@
       ]
   },
   {
-      "marque_name": "BMW",
+      "marque": "BMW",
       "models": [
           "02 (E10)",
           "1er 116",
@@ -178,21 +178,21 @@
       ]
   },
   {
-      "marque_name": "Brilliance",
+      "marque": "Brilliance",
       "models": [
           "M1",
           "M2"
       ]
   },
   {
-      "marque_name": "Bugatti",
+      "marque": "Bugatti",
       "models": [
           "57 SC Atlantic",
           "EB 16.4"
       ]
   },
   {
-      "marque_name": "Buick",
+      "marque": "Buick",
       "models": [
           "Century",
           "Enclave",
@@ -206,14 +206,14 @@
       ]
   },
   {
-      "marque_name": "BYD",
+      "marque": "BYD",
       "models": [
           "F3",
           "FLYER II"
       ]
   },
   {
-      "marque_name": "Cadillac",
+      "marque": "Cadillac",
       "models": [
           "BLS",
           "CTS",
@@ -229,20 +229,20 @@
       ]
   },
   {
-      "marque_name": "Caterham",
+      "marque": "Caterham",
       "models": [
           "Super Seven"
       ]
   },
   {
-      "marque_name": "ChangFeng",
+      "marque": "ChangFeng",
       "models": [
           "Flying",
           "SUV"
       ]
   },
   {
-      "marque_name": "Chery",
+      "marque": "Chery",
       "models": [
           "Amulet",
           "Flagcloud",
@@ -255,7 +255,7 @@
       ]
   },
   {
-      "marque_name": "Chevrolet",
+      "marque": "Chevrolet",
       "models": [
           "Alero",
           "Astro",
@@ -302,7 +302,7 @@
       ]
   },
   {
-      "marque_name": "Chrysler",
+      "marque": "Chrysler",
       "models": [
           "300C",
           "300M",
@@ -330,7 +330,7 @@
       ]
   },
   {
-      "marque_name": "Citroen",
+      "marque": "Citroen",
       "models": [
           "AX",
           "BX",
@@ -357,26 +357,26 @@
       ]
   },
   {
-      "marque_name": "Coggiola",
+      "marque": "Coggiola",
       "models": [
           "T-Rex"
       ]
   },
   {
-      "marque_name": "Dacia",
+      "marque": "Dacia",
       "models": [
           "1410"
       ]
   },
   {
-      "marque_name": "Dadi",
+      "marque": "Dadi",
       "models": [
           "City Leading",
           "Shuttle"
       ]
   },
   {
-      "marque_name": "Daewoo",
+      "marque": "Daewoo",
       "models": [
           "Damas",
           "Espero",
@@ -398,7 +398,7 @@
       ]
   },
   {
-      "marque_name": "Daihatsu",
+      "marque": "Daihatsu",
       "models": [
           "Altis",
           "Applause",
@@ -422,14 +422,14 @@
       ]
   },
   {
-      "marque_name": "Daimler",
+      "marque": "Daimler",
       "models": [
           "2.8 - 5.3",
           "Limousine"
       ]
   },
   {
-      "marque_name": "Derways",
+      "marque": "Derways",
       "models": [
           "Aurora",
           "Cowboy",
@@ -438,7 +438,7 @@
       ]
   },
   {
-      "marque_name": "Dodge",
+      "marque": "Dodge",
       "models": [
           "Avenger",
           "Caliber",
@@ -462,13 +462,13 @@
       ]
   },
   {
-      "marque_name": "Dong Feng",
+      "marque": "Dong Feng",
       "models": [
           "MPV"
       ]
   },
   {
-      "marque_name": "Doninvest",
+      "marque": "Doninvest",
       "models": [
           "Assol",
           "Kondor",
@@ -476,20 +476,20 @@
       ]
   },
   {
-      "marque_name": "Donkervoort",
+      "marque": "Donkervoort",
       "models": [
           "D8"
       ]
   },
   {
-      "marque_name": "Eagle",
+      "marque": "Eagle",
       "models": [
           "Talon",
           "Vision"
       ]
   },
   {
-      "marque_name": "FAW",
+      "marque": "FAW",
       "models": [
           "Admiral",
           "Jinn",
@@ -497,7 +497,7 @@
       ]
   },
   {
-      "marque_name": "Ferrari",
+      "marque": "Ferrari",
       "models": [
           "360",
           "430",
@@ -512,7 +512,7 @@
       ]
   },
   {
-      "marque_name": "Fiat",
+      "marque": "Fiat",
       "models": [
           "131",
           "Albea",
@@ -543,7 +543,7 @@
       ]
   },
   {
-      "marque_name": "Ford",
+      "marque": "Ford",
       "models": [
           "Aerostar",
           "Bronco",
@@ -594,14 +594,14 @@
       ]
   },
   {
-      "marque_name": "Geely",
+      "marque": "Geely",
       "models": [
           "MK",
           "Otaka"
       ]
   },
   {
-      "marque_name": "Geo",
+      "marque": "Geo",
       "models": [
           "Metro",
           "Prizm",
@@ -610,7 +610,7 @@
       ]
   },
   {
-      "marque_name": "GMC",
+      "marque": "GMC",
       "models": [
           "Acadia",
           "Envoy",
@@ -624,7 +624,7 @@
       ]
   },
   {
-      "marque_name": "Great Wall",
+      "marque": "Great Wall",
       "models": [
           "Deer",
           "Hover",
@@ -636,7 +636,7 @@
       ]
   },
   {
-      "marque_name": "Hafei",
+      "marque": "Hafei",
       "models": [
           "Brio",
           "Princip",
@@ -644,7 +644,7 @@
       ]
   },
   {
-      "marque_name": "Honda",
+      "marque": "Honda",
       "models": [
           "Accord",
           "Airwave",
@@ -693,13 +693,13 @@
       ]
   },
   {
-      "marque_name": "HuangHai",
+      "marque": "HuangHai",
       "models": [
           "Antelope"
       ]
   },
   {
-      "marque_name": "Hummer",
+      "marque": "Hummer",
       "models": [
           "Hummer",
           "Hummer H1",
@@ -708,7 +708,7 @@
       ]
   },
   {
-      "marque_name": "Hyundai",
+      "marque": "Hyundai",
       "models": [
           "Accent",
           "Atos",
@@ -739,7 +739,7 @@
       ]
   },
   {
-      "marque_name": "Infiniti",
+      "marque": "Infiniti",
       "models": [
           "EX",
           "FX 35",
@@ -758,13 +758,13 @@
       ]
   },
   {
-      "marque_name": "Iran Khodro",
+      "marque": "Iran Khodro",
       "models": [
           "Samand"
       ]
   },
   {
-      "marque_name": "Isuzu",
+      "marque": "Isuzu",
       "models": [
           "Ascender",
           "Aska",
@@ -779,14 +779,14 @@
       ]
   },
   {
-      "marque_name": "JAC",
+      "marque": "JAC",
       "models": [
           "Refine",
           "Rein"
       ]
   },
   {
-      "marque_name": "Jaguar",
+      "marque": "Jaguar",
       "models": [
           "E-type",
           "S-type",
@@ -801,7 +801,7 @@
       ]
   },
   {
-      "marque_name": "Jeep",
+      "marque": "Jeep",
       "models": [
           "CJ5 - CJ8",
           "Cherokee",
@@ -814,7 +814,7 @@
       ]
   },
   {
-      "marque_name": "Kia",
+      "marque": "Kia",
       "models": [
           "Avella",
           "Besta",
@@ -845,13 +845,13 @@
       ]
   },
   {
-      "marque_name": "Koenigsegg",
+      "marque": "Koenigsegg",
       "models": [
           "CC"
       ]
   },
   {
-      "marque_name": "Lamborghini",
+      "marque": "Lamborghini",
       "models": [
           "Diablo",
           "Espada",
@@ -860,7 +860,7 @@
       ]
   },
   {
-      "marque_name": "Lancia",
+      "marque": "Lancia",
       "models": [
           "Beta",
           "Dedra",
@@ -874,7 +874,7 @@
       ]
   },
   {
-      "marque_name": "Land Rover",
+      "marque": "Land Rover",
       "models": [
           "90/110",
           "Defender",
@@ -886,14 +886,14 @@
       ]
   },
   {
-      "marque_name": "Landwind",
+      "marque": "Landwind",
       "models": [
           "Double Gate",
           "SUV"
       ]
   },
   {
-      "marque_name": "Lexus",
+      "marque": "Lexus",
       "models": [
           "ES 300",
           "ES 330",
@@ -927,13 +927,13 @@
       ]
   },
   {
-      "marque_name": "Lifan",
+      "marque": "Lifan",
       "models": [
           "Breez (520)"
       ]
   },
   {
-      "marque_name": "Lincoln",
+      "marque": "Lincoln",
       "models": [
           "Aviator",
           "Continental",
@@ -948,7 +948,7 @@
       ]
   },
   {
-      "marque_name": "Lotus",
+      "marque": "Lotus",
       "models": [
           "Elise",
           "Exige",
@@ -956,19 +956,19 @@
       ]
   },
   {
-      "marque_name": "Mahindra",
+      "marque": "Mahindra",
       "models": [
           "Marshal"
       ]
   },
   {
-      "marque_name": "Maruti",
+      "marque": "Maruti",
       "models": [
           "Alto"
       ]
   },
   {
-      "marque_name": "Maserati",
+      "marque": "Maserati",
       "models": [
           "228",
           "3200 GT",
@@ -982,14 +982,14 @@
       ]
   },
   {
-      "marque_name": "Maybach",
+      "marque": "Maybach",
       "models": [
           "Maybach 57 S и Maybach 62 S",
           "Maybach 57 и Maybach 62"
       ]
   },
   {
-      "marque_name": "Mazda",
+      "marque": "Mazda",
       "models": [
           "121",
           "323",
@@ -1036,7 +1036,7 @@
       ]
   },
   {
-      "marque_name": "Mercedes-Benz",
+      "marque": "Mercedes-Benz",
       "models": [
           " Cabrio",
           " Coupe",
@@ -1194,7 +1194,7 @@
       ]
   },
   {
-      "marque_name": "Mercury",
+      "marque": "Mercury",
       "models": [
           "Capri",
           "Cougar",
@@ -1210,13 +1210,13 @@
       ]
   },
   {
-      "marque_name": "Metrocab",
+      "marque": "Metrocab",
       "models": [
           "Taxi  (II -series)"
       ]
   },
   {
-      "marque_name": "MG",
+      "marque": "MG",
       "models": [
           "MGB",
           "MGF",
@@ -1226,13 +1226,13 @@
       ]
   },
   {
-      "marque_name": "Microcar",
+      "marque": "Microcar",
       "models": [
           "MC1"
       ]
   },
   {
-      "marque_name": "Mini",
+      "marque": "Mini",
       "models": [
           "Clubman",
           "Cooper",
@@ -1240,7 +1240,7 @@
       ]
   },
   {
-      "marque_name": "Mitsubishi",
+      "marque": "Mitsubishi",
       "models": [
           "3000 GT",
           "Airtrek",
@@ -1289,7 +1289,7 @@
       ]
   },
   {
-      "marque_name": "Mitsuoka",
+      "marque": "Mitsuoka",
       "models": [
           "Galue",
           "Le-Sayde",
@@ -1297,13 +1297,13 @@
       ]
   },
   {
-      "marque_name": "Morgan",
+      "marque": "Morgan",
       "models": [
           "Aero 8"
       ]
   },
   {
-      "marque_name": "Nissan",
+      "marque": "Nissan",
       "models": [
           "100 NX",
           "200 SX",
@@ -1380,7 +1380,7 @@
       ]
   },
   {
-      "marque_name": "Oldsmobile",
+      "marque": "Oldsmobile",
       "models": [
           "Achieva",
           "Alero",
@@ -1391,7 +1391,7 @@
       ]
   },
   {
-      "marque_name": "Opel",
+      "marque": "Opel",
       "models": [
           "Agila",
           "Antara",
@@ -1424,13 +1424,13 @@
       ]
   },
   {
-      "marque_name": "Pagani",
+      "marque": "Pagani",
       "models": [
           "Zonda C12"
       ]
   },
   {
-      "marque_name": "Peugeot",
+      "marque": "Peugeot",
       "models": [
           "106",
           "107",
@@ -1454,7 +1454,7 @@
       ]
   },
   {
-      "marque_name": "Plymouth",
+      "marque": "Plymouth",
       "models": [
           "Acclaim",
           "Breeze",
@@ -1467,7 +1467,7 @@
       ]
   },
   {
-      "marque_name": "Pontiac",
+      "marque": "Pontiac",
       "models": [
           "6000",
           "Aztec",
@@ -1485,7 +1485,7 @@
       ]
   },
   {
-      "marque_name": "Porsche",
+      "marque": "Porsche",
       "models": [
           "911",
           "924",
@@ -1499,21 +1499,21 @@
       ]
   },
   {
-      "marque_name": "Proton",
+      "marque": "Proton",
       "models": [
           "Persona 300 Compact",
           "Persona 400"
       ]
   },
   {
-      "marque_name": "PUCH",
+      "marque": "PUCH",
       "models": [
           "G-modell",
           "Pinzgauer"
       ]
   },
   {
-      "marque_name": "Renault",
+      "marque": "Renault",
       "models": [
           "5",
           "9",
@@ -1548,7 +1548,7 @@
       ]
   },
   {
-      "marque_name": "Rolls-Royce",
+      "marque": "Rolls-Royce",
       "models": [
           "Corniche Cabrio",
           "Phantom",
@@ -1558,7 +1558,7 @@
       ]
   },
   {
-      "marque_name": "Rover",
+      "marque": "Rover",
       "models": [
           "25",
           "45",
@@ -1573,7 +1573,7 @@
       ]
   },
   {
-      "marque_name": "Saab",
+      "marque": "Saab",
       "models": [
           "9-2X",
           "9-3",
@@ -1585,13 +1585,13 @@
       ]
   },
   {
-      "marque_name": "Saleen",
+      "marque": "Saleen",
       "models": [
           "S7"
       ]
   },
   {
-      "marque_name": "Saturn",
+      "marque": "Saturn",
       "models": [
           "ION",
           "LS",
@@ -1601,7 +1601,7 @@
       ]
   },
   {
-      "marque_name": "Scion",
+      "marque": "Scion",
       "models": [
           "tC",
           "xA",
@@ -1609,7 +1609,7 @@
       ]
   },
   {
-      "marque_name": "SEAT",
+      "marque": "SEAT",
       "models": [
           "Alhambra",
           "Altea",
@@ -1623,13 +1623,13 @@
       ]
   },
   {
-      "marque_name": "ShuangHuan",
+      "marque": "ShuangHuan",
       "models": [
           "Sceo"
       ]
   },
   {
-      "marque_name": "Skoda",
+      "marque": "Skoda",
       "models": [
           "Fabia",
           "Favorit",
@@ -1641,7 +1641,7 @@
       ]
   },
   {
-      "marque_name": "Smart",
+      "marque": "Smart",
       "models": [
           "Crossblade",
           "Forfour",
@@ -1650,13 +1650,13 @@
       ]
   },
   {
-      "marque_name": "Spyker",
+      "marque": "Spyker",
       "models": [
           "C8"
       ]
   },
   {
-      "marque_name": "SsangYong",
+      "marque": "SsangYong",
       "models": [
           "Actyon",
           "Chairman",
@@ -1671,7 +1671,7 @@
       ]
   },
   {
-      "marque_name": "Subaru",
+      "marque": "Subaru",
       "models": [
           "Baja",
           "Forester",
@@ -1693,7 +1693,7 @@
       ]
   },
   {
-      "marque_name": "Suzuki",
+      "marque": "Suzuki",
       "models": [
           "Aerio",
           "Alto",
@@ -1721,25 +1721,25 @@
       ]
   },
   {
-      "marque_name": "Tatra",
+      "marque": "Tatra",
       "models": [
           "T613"
       ]
   },
   {
-      "marque_name": "Tianma",
+      "marque": "Tianma",
       "models": [
           "Century"
       ]
   },
   {
-      "marque_name": "Tianye",
+      "marque": "Tianye",
       "models": [
           "Admiral"
       ]
   },
   {
-      "marque_name": "Toyota",
+      "marque": "Toyota",
       "models": [
           "4runner",
           "Allex",
@@ -1868,25 +1868,25 @@
       ]
   },
   {
-      "marque_name": "Trabant",
+      "marque": "Trabant",
       "models": [
           "P 601"
       ]
   },
   {
-      "marque_name": "TVR",
+      "marque": "TVR",
       "models": [
           "Griffith"
       ]
   },
   {
-      "marque_name": "Vector",
+      "marque": "Vector",
       "models": [
           "W8 Twin Turbo"
       ]
   },
   {
-      "marque_name": "Volkswagen",
+      "marque": "Volkswagen",
       "models": [
           "Bora",
           "Caddy",
@@ -1915,7 +1915,7 @@
       ]
   },
   {
-      "marque_name": "Volvo",
+      "marque": "Volvo",
       "models": [
           "164",
           "240",
@@ -1944,20 +1944,20 @@
       ]
   },
   {
-      "marque_name": "Wartburg",
+      "marque": "Wartburg",
       "models": [
           "353"
       ]
   },
   {
-      "marque_name": "Wiesmann",
+      "marque": "Wiesmann",
       "models": [
           "GT",
           "Roadster"
       ]
   },
   {
-      "marque_name": "Xin Kai",
+      "marque": "Xin Kai",
       "models": [
           "PICKUP X3",
           "SR-V X3",
@@ -1965,14 +1965,14 @@
       ]
   },
   {
-      "marque_name": "ZX",
+      "marque": "ZX",
       "models": [
           "GrandTiger",
           "Landmark"
       ]
   },
   {
-      "marque_name": "ВАЗ",
+      "marque": "ВАЗ",
       "models": [
           "1111 Ока 1111",
           "1111 Ока 11113",
@@ -2043,13 +2043,13 @@
       ]
   },
   {
-      "marque_name": "Велта",
+      "marque": "Велта",
       "models": [
           "Автокам"
       ]
   },
   {
-      "marque_name": "ГАЗ",
+      "marque": "ГАЗ",
       "models": [
           "13",
           "14",
@@ -2074,7 +2074,7 @@
       ]
   },
   {
-      "marque_name": "ЗАЗ",
+      "marque": "ЗАЗ",
       "models": [
           "965",
           "968",
@@ -2086,7 +2086,7 @@
       ]
   },
   {
-      "marque_name": "ЗИЛ",
+      "marque": "ЗИЛ",
       "models": [
           "114",
           "117",
@@ -2094,7 +2094,7 @@
       ]
   },
   {
-      "marque_name": "ИЖ",
+      "marque": "ИЖ",
       "models": [
           "412",
           "2125",
@@ -2106,13 +2106,13 @@
       ]
   },
   {
-      "marque_name": "КАМАЗ",
+      "marque": "КАМАЗ",
       "models": [
           "Ока"
       ]
   },
   {
-      "marque_name": "ЛУАЗ",
+      "marque": "ЛУАЗ",
       "models": [
           "967",
           "968",
@@ -2120,7 +2120,7 @@
       ]
   },
   {
-      "marque_name": "Москвич",
+      "marque": "Москвич",
       "models": [
           "400",
           "401",
@@ -2145,25 +2145,25 @@
       ]
   },
   {
-      "marque_name": "СеАЗ",
+      "marque": "СеАЗ",
       "models": [
           "1111"
       ]
   },
   {
-      "marque_name": "СМЗ",
+      "marque": "СМЗ",
       "models": [
           "Мотоколяска"
       ]
   },
   {
-      "marque_name": "ТагАЗ",
+      "marque": "ТагАЗ",
       "models": [
           "Tager"
       ]
   },
   {
-      "marque_name": "УАЗ",
+      "marque": "УАЗ",
       "models": [
           "469",
           "2206",

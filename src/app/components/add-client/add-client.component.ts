@@ -91,7 +91,7 @@ export class AddClientComponent implements OnInit {
     this.crudDBService.cars
       .forEach(item => {
         if (item.marque === carMarque) {
-          carModelsArr = item.model;
+          carModelsArr = item.models;
         }
       });
     return carModelsArr
@@ -100,9 +100,6 @@ export class AddClientComponent implements OnInit {
 
   addCarToDBIfNotExists(marque, model) {
     if (!marque || !model) {
-      // return this.snackBar.open('Заповніть поля з маркою та моделлю авто', 'Зрозуміло', {
-      //   duration: 2000,
-      // });
       return;
     }
     let isCarMarqueNew__key = '';
@@ -110,7 +107,7 @@ export class AddClientComponent implements OnInit {
     this.crudDBService.cars.forEach(item => {
       if (item.marque === marque) {
         isCarMarqueNew__key = item.key;
-        item.model.forEach(elem => {
+        item.models.forEach(elem => {
           if (elem === model) {
             isCarModelNew = true;
           }
@@ -125,7 +122,7 @@ export class AddClientComponent implements OnInit {
       this.crudDBService.cars
         .forEach(item => {
           if (item.key === isCarMarqueNew__key) {
-            existingModels = item.model;
+            existingModels = item.models;
           }
         });
       existingModels.push(model);
@@ -232,10 +229,9 @@ export class AddClientComponent implements OnInit {
   calculateTotalDetailCost() {
     let detailCost = 0;
     this.carsDetails.forEach(detail => {
-      detailCost += parseInt(detail.cost);
+      detailCost += parseInt(detail.cost, 10);
     });
     this.totalDetailCost = detailCost;
   }
-
 
 }
