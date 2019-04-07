@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.main__content {
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
 .client__info__card {
   @include max-width(800px);
   margin: 20px auto;

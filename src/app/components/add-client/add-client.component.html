@@ -1,14 +1,17 @@
-<app-user-navbar></app-user-navbar>
-<mat-card class="client__info__card">
+<nav>
+  <app-user-navbar></app-user-navbar>
+</nav>
+<div class="main__content">
+  <mat-card class="client__info__card">
     <mat-card-header>
       <mat-card-title>Вкажіть інформацію про замовлення</mat-card-title>
       <mat-card-subtitle>поля позначені * є обов'язковими</mat-card-subtitle>
     </mat-card-header>
 
     <form (ngSubmit)="addClient(addClientForm)"  #addClientForm="ngForm">
-    <mat-card-content>
-      <h3>Загальна інформація</h3>
-      <div ngModelGroup="clientInfo" #clientInfo="ngModelGroup">
+      <mat-card-content>
+        <h3>Загальна інформація</h3>
+        <div ngModelGroup="clientInfo" #clientInfo="ngModelGroup">
           <mat-form-field>
             <input matInput [matDatepicker]="dp" placeholder="Дата оформлення замовлення" [formControl]="date" name="date" #orderDate>
             <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
@@ -20,83 +23,83 @@
           <mat-form-field>
             <input matInput placeholder="Номер телефону" #clientPhoneNumber autocomplete="off" value="333" name="phoneNumber" ngModel>
           </mat-form-field>
-      </div>
+        </div>
 
-      <h3>Авто</h3>
-      <div ngModelGroup="carInfo" #carInfo="ngModelGroup">
-        <mat-form-field>
-          <input
-          type="text"
-          placeholder="Марка авто"
-          aria-label="Марка авто"
-          matInput
-          #carMarque
-          name="carMarque"
-          [formControl]="marqueControl"
-          [matAutocomplete]="autoMarqueField">
-          <mat-autocomplete #autoMarqueField="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptionsMarque | async" [value]="option">
-              {{option}}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-          type="text"
-          placeholder="Модель марки"
-          aria-label="Модель марки"
-          matInput
-          #carModel
-          name="carModel"
-          [formControl]="modelControl"
-          [matAutocomplete]="autoModelField">
-          <mat-autocomplete #autoModelField="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptionsModel | async" [value]="option">
-              {{option}}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type="number" placeholder="Рік випуску автомобіля" #carYear autocomplete="off" value="2019" name="carYear" ngModel>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Vin-код" #vinCode autocomplete="off" value="vin code" name="vinCode" ngModel required>
-        </mat-form-field>
-        <mat-form-field>
+        <h3>Авто</h3>
+        <div ngModelGroup="carInfo" #carInfo="ngModelGroup">
+          <mat-form-field>
+            <input
+              type="text"
+              placeholder="Марка авто"
+              aria-label="Марка авто"
+              matInput
+              #carMarque
+              name="carMarque"
+              [formControl]="marqueControl"
+              [matAutocomplete]="autoMarqueField">
+            <mat-autocomplete #autoMarqueField="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptionsMarque | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              placeholder="Модель марки"
+              aria-label="Модель марки"
+              matInput
+              #carModel
+              name="carModel"
+              [formControl]="modelControl"
+              [matAutocomplete]="autoModelField">
+            <mat-autocomplete #autoModelField="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptionsModel | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Рік випуску автомобіля" #carYear autocomplete="off" value="2019" name="carYear" ngModel>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Vin-код" #vinCode autocomplete="off" value="vin code" name="vinCode" ngModel required>
+          </mat-form-field>
+          <mat-form-field>
             <input matInput placeholder="Державний номер" #carNumber autocomplete="off" value="car number" name="carNumber" ngModel>
-         </mat-form-field>
-         <mat-form-field>
+          </mat-form-field>
+          <mat-form-field>
             <input matInput type="number" placeholder="Пробіг (км)" #miles autocomplete="off" value="1000" name="miles" ngModel>
-         </mat-form-field>
-      </div>
+          </mat-form-field>
+        </div>
 
         <h3>Що ремонтуємо?</h3>
         <div ngModelGroup="workInfo" #workInfo="ngModelGroup">
-        <mat-form-field appearance="outline" class="done__work__input">
-          <mat-label>Виконана робота</mat-label>
-          <textarea
-            matInput
-            cdkTextareaAutosize
-            cdkAutosizeMinRows="10"
-            cdkAutosizeMaxRows="10"
-            placeholder="Виконана робота"
-            name="doneWork"
-            ngModel
-          ></textarea>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-             matInput type="number"
-             placeholder="Вартість робіт (грн)"
-             #workCost
-             autocomplete="off"
-             name="workCost"
-             ngModel
-          >
-       </mat-form-field>
-      </div>
+          <mat-form-field appearance="outline" class="done__work__input">
+            <mat-label>Виконана робота</mat-label>
+            <textarea
+              matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="10"
+              cdkAutosizeMaxRows="10"
+              placeholder="Виконана робота"
+              name="doneWork"
+              ngModel
+            ></textarea>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput type="number"
+              placeholder="Вартість робіт (грн)"
+              #workCost
+              autocomplete="off"
+              name="workCost"
+              ngModel
+            >
+          </mat-form-field>
+        </div>
 
-      <h4>Додати запчастину</h4>
+        <h4>Додати запчастину</h4>
         <div>
           <div class="cardetail__info">
             <mat-form-field class="cardetail__info__input">
@@ -107,22 +110,23 @@
             </mat-form-field>
             <button mat-stroked-button color="primary" class="cardetail__info__btn" type="button" (click)="addNewDetail(detailName, detailCost)">Додати запчастину</button>
           </div>
-        <div class="added__details">
-          <mat-chip-list class="detail">
+          <div class="added__details">
+            <mat-chip-list class="detail">
               <mat-chip
                 *ngFor="let carDetail of carsDetails"
                 class="detail__chip">{{ carDetail.name }} <span class="detail__cost">{{ carDetail.cost }} Грн</span> <button (click)="deleteDetail(carDetail.id)" class="detail__delete">✖</button></mat-chip>
-          </mat-chip-list>
+            </mat-chip-list>
+          </div>
+          <h4 class="total__details__cost">Загальна вартість делатей: {{ totalDetailCost }} Грн</h4>
         </div>
-        <h4 class="total__details__cost">Загальна вартість делатей: {{ totalDetailCost }} Грн</h4>
-      </div>
-    </mat-card-content>
-    <mat-card-actions class="actions__panel">
+      </mat-card-content>
+      <mat-card-actions class="actions__panel">
         <button
           class="add__btn"
           mat-button
           type="submit"
         >ПІДТВЕРДИТИ</button>
-    </mat-card-actions>
-  </form>
-</mat-card>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
