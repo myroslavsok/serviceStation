@@ -10,11 +10,12 @@ const app = express();
 // app.get('/*', function(req,res) {
 //   res.sendFile(path.join('/dist/service-station-is/index.html'));
 // });
-app.use(express.static('/dist/service-station-is'));
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/dist/service-station-is/index.html'));
-});
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080, () => {
   console.log('server started');
+});
+
+app.use(express.static('/dist/service-station-IS'));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/dist/service-station-IS/index.html'));
 });
