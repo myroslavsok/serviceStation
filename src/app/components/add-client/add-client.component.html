@@ -9,12 +9,13 @@
       <mat-card-subtitle>поля позначені * є обов'язковими</mat-card-subtitle>
     </mat-card-header>
 
-    <form (ngSubmit)="addClient(addClientForm)"  #addClientForm="ngForm">
+    <form (ngSubmit)="addClient(addClientForm)" #addClientForm="ngForm">
       <mat-card-content>
         <h3>Загальна інформація</h3>
         <div ngModelGroup="clientInfo" #clientInfo="ngModelGroup">
           <mat-form-field>
-            <input matInput [matDatepicker]="dp" placeholder="Дата оформлення замовлення" [formControl]="date" name="date" #orderDate>
+            <input matInput [matDatepicker]="dp" placeholder="Дата оформлення замовлення" [formControl]="date"
+                   name="date" #orderDate>
             <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
             <mat-datepicker #dp></mat-datepicker>
           </mat-form-field>
@@ -22,12 +23,12 @@
             <input matInput placeholder="ПІБ клієнта" #clientName autocomplete="off" name="name" ngModel>
           </mat-form-field>
           <mat-form-field>
-<!--            <input matInput placeholder="Номер телефону" #clientPhoneNumber autocomplete="off" value="333" name="phoneNumber" ngModel>-->
+            <!--            <input matInput placeholder="Номер телефону" #clientPhoneNumber autocomplete="off" value="333" name="phoneNumber" ngModel>-->
             <input
               matInput
               prefix="+38 "
               mask="(000) 000-0000"
-              [showMaskTyped] = "true"
+              [showMaskTyped]="true"
               placeholder="Номер телефону"
               #clientPhoneNumber
               autocomplete="off"
@@ -72,19 +73,20 @@
             </mat-autocomplete>
           </mat-form-field>
           <mat-form-field>
-            <input matInput type="text" mask="0000" placeholder="Рік випуску автомобіля" #carYear autocomplete="off" name="carYear" ngModel>
+            <input matInput type="text" mask="0000" placeholder="Рік випуску автомобіля" #carYear autocomplete="off"
+                   name="carYear" ngModel>
           </mat-form-field>
           <mat-form-field>
             <input
               matInput
-              mask="A-AA-AAAAA-A-A-A-AAAAAA"
               placeholder="Vin-код"
+              mask="AAAAAAAAAAAAAAAAA"
               #vinCode
               autocomplete="off"
               name="vinCode"
               ngModel
               required>
-            <mat-hint>Формат: a-aa-aaaaa-a-a-a-aaaaaa</mat-hint>
+            <mat-hint>Формат: 17 символів</mat-hint>
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="Державний номер" #carNumber autocomplete="off" name="carNumber" ngModel>
@@ -120,6 +122,17 @@
               ngModel
             >
           </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              placeholder="Хто виконав?"
+              #craftsManName
+              autocomplete="off"
+              name="craftsManName"
+              ngModel
+            >
+          </mat-form-field>
         </div>
 
         <h4>Додати запчастину</h4>
@@ -131,13 +144,17 @@
             <mat-form-field class="cardetail__info__input">
               <input matInput type="text" mask="separator" #detailCost placeholder="Ціна" autocomplete="off">
             </mat-form-field>
-            <button mat-stroked-button color="primary" class="cardetail__info__btn" type="button" (click)="addNewDetail(detailName, detailCost)">Додати запчастину</button>
+            <button mat-stroked-button color="primary" class="cardetail__info__btn" type="button"
+                    (click)="addNewDetail(detailName, detailCost)">Додати запчастину
+            </button>
           </div>
           <div class="added__details">
             <mat-chip-list class="detail">
               <mat-chip
                 *ngFor="let carDetail of carsDetails"
-                class="detail__chip">{{ carDetail.name }} <span class="detail__cost">{{ carDetail.cost }} Грн</span> <button (click)="deleteDetail(carDetail.id)" class="detail__delete">✖</button></mat-chip>
+                class="detail__chip">{{ carDetail.name }} <span class="detail__cost">{{ carDetail.cost }} Грн</span>
+                <button (click)="deleteDetail(carDetail.id)" class="detail__delete">✖</button>
+              </mat-chip>
             </mat-chip-list>
           </div>
           <h4 class="total__details__cost">Загальна вартість делатей: {{ totalDetailCost }} Грн</h4>
@@ -148,7 +165,8 @@
           class="add__btn"
           mat-button
           type="submit"
-        >ПІДТВЕРДИТИ</button>
+        >ПІДТВЕРДИТИ
+        </button>
       </mat-card-actions>
     </form>
   </mat-card>

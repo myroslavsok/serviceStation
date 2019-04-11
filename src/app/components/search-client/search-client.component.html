@@ -5,9 +5,16 @@
 <div class="main__content">
   <div class="search__container">
     <mat-form-field appearance="outline" class="input__search__container">
-      <mat-label>Пошук по vin-коду</mat-label>
-      <input matInput [(ngModel)]="searchValue.carInfo.vinCode" placeholder="Пошук по vin-коду" autocomplete="off">
+      <mat-label>Пошук</mat-label>
+            <input matInput *ngIf="searchBySelected === 'vinCode'" [(ngModel)]="searchValue.carInfo.vinCode" placeholder="Пошук за vin-кодом" autocomplete="off">
+            <input matInput *ngIf="searchBySelected === 'carNumber'" [(ngModel)]="searchValue.carInfo.carNumber" placeholder="Пошук за номером авто" autocomplete="off">
       <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="input__search__container">
+      <mat-label>Пошук за</mat-label>
+      <mat-select [(value)]="searchBySelected" (selectionChange)="clearSearchValue()">
+        <mat-option *ngFor="let option of searchBySelectedOptions" value="{{ option.value }}">{{ option.title }}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
 
@@ -20,12 +27,18 @@
     <mat-button-toggle value="close">Виконанні</mat-button-toggle>
   </mat-button-toggle-group>
 
-  <mat-card *ngFor="let client of clients | filterBy: searchValue" class="client__order" [class.is__closed]="client.clientInfo.status === 'closed'">
+  <mat-card *ngFor="let client of clients | filterBy: searchValue" class="client__order"
+            [class.is__closed]="client.clientInfo.status === 'closed'">
     <mat-card-header>
-      <mat-card-title class="client__order__title">{{ client.carInfo.vinCode }} (Загальна вартість
-        замовлення {{ client.workInfo.totalCost }} Грн)
+      <mat-card-title class="client__order__title">
+        <p>Vin-код: {{ client.carInfo.vinCode }}</p>
+        <p>Державний номер: {{ client.carInfo.carNumber }}</p>
       </mat-card-title>
-      <mat-card-subtitle>{{ client.clientInfo.date }}</mat-card-subtitle>
+      <mat-card-subtitle>
+        <p>{{ client.clientInfo.date }}</p>
+        <p>Майстер: <b>{{ client.workInfo.craftsManName }}</b></p>
+        <p>Загальна вартість замовлення: {{ client.workInfo.totalCost }} Грн</p>
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <mat-expansion-panel class="expansion__panel">
@@ -60,10 +73,6 @@
           <tr>
             <td>Рік:</td>
             <td>{{ client.carInfo.carYear }}</td>
-          </tr>
-          <tr>
-            <td>Номер:</td>
-            <td>{{ client.carInfo.carNumber }}</td>
           </tr>
           <tr>
             <td>Пробіг:</td>
@@ -107,7 +116,8 @@
       >Відмітити як актуальне
       </button>
       <ng-template #newOrder>
-        <button mat-button class="close__order__btn" (click)="changeStatusOfClient(client)">Відмітити як виконане</button>
+        <button mat-button class="close__order__btn" (click)="changeStatusOfClient(client)">Відмітити як виконане
+        </button>
       </ng-template>
     </mat-card-actions>
   </mat-card>

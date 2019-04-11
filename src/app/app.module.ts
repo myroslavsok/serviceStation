@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 
-// Materia design modules
+// Material design modules
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -26,13 +26,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
-// Servies
+// Service
 import { СrudDBService } from './shared/services/сrud-d-b.service';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
@@ -83,7 +83,8 @@ import { ForgotPasswordDialogComponent } from './components/login/module-windows
     MatTableModule,
     MatIconModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   entryComponents: [
     ForgotPasswordDialogComponent

@@ -192,7 +192,7 @@ export class AddClientComponent implements OnInit {
     this.addCarToDBIfNotExists(client.carInfo.marque, client.carInfo.model);
     client = this.setDefaultValuesForEmptyFormFields(client);
     this.clearFormAndFiledValues(addClientForm);
-    console.log('Client', client);
+    console.log('[add-client] client = ', client);
     try {
       this.crudDBService.addClient(client);
       this.snackBar.open('Клієнт успішно доданий до бази', 'Ок', {
