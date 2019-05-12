@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {СrudDBService} from '../../shared/services/сrud-d-b.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-client',
@@ -11,7 +12,9 @@ export class SearchClientComponent implements OnInit {
 
   constructor(
     private crudDBService: СrudDBService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private ngZone: NgZone
   ) {
   }
 
@@ -65,6 +68,10 @@ export class SearchClientComponent implements OnInit {
     this.snackBar.open('Статус замовлення змінено', 'Ок', {
       duration: 2000,
     });
+  }
+
+  addNewOrder() {
+    this.ngZone.run(() => this.router.navigate(['add-client'])).then();
   }
 
 }

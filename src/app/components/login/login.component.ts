@@ -43,11 +43,11 @@ export class LoginComponent implements OnInit {
     this.authService.signInRegular(this.user.email, this.user.password)
       .then((res) => {
         console.log(res);
-        this.ngZone.run(() => this.router.navigate(['add-client'])).then();
+        this.ngZone.run(() => this.router.navigate(['search-clients'])).then();
       })
       .catch((err) => {
         alert('error: ' + err);
-        console.log('error: ' + err);
+        console.error('error: ' + err);
       });
   }
 

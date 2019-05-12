@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   // { path: '', redirectTo: 'add-client', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
-  { path: 'add-client', component: AddClientComponent, canActivate: [AuthGuardService] },
   { path: 'search-clients', component: SearchClientComponent, canActivate: [AuthGuardService] },
+  { path: 'add-client', component: AddClientComponent, canActivate: [AuthGuardService] },
   { path: 'account-setting', component: AccountSettingsComponent, canActivate: [AuthGuardService] }
   // { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];

@@ -6,8 +6,8 @@
   <div class="search__container">
     <mat-form-field appearance="outline" class="input__search__container">
       <mat-label>Пошук</mat-label>
-            <input matInput *ngIf="searchBySelected === 'vinCode'" [(ngModel)]="searchValue.carInfo.vinCode" placeholder="Пошук за vin-кодом" autocomplete="off">
-            <input matInput *ngIf="searchBySelected === 'carNumber'" [(ngModel)]="searchValue.carInfo.carNumber" placeholder="Пошук за номером авто" autocomplete="off">
+      <input matInput *ngIf="searchBySelected === 'vinCode'" [(ngModel)]="searchValue.carInfo.vinCode" placeholder="Пошук за vin-кодом" autocomplete="off">
+      <input matInput *ngIf="searchBySelected === 'carNumber'" [(ngModel)]="searchValue.carInfo.carNumber" placeholder="Пошук за номером авто" autocomplete="off">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <mat-form-field class="input__search__container">
@@ -27,6 +27,7 @@
     <mat-button-toggle value="close">Виконанні</mat-button-toggle>
   </mat-button-toggle-group>
 
+<!--  ORDER CARD -->
   <mat-card *ngFor="let client of clients | filterBy: searchValue" class="client__order"
             [class.is__closed]="client.clientInfo.status === 'closed'">
     <mat-card-header>
@@ -34,78 +35,71 @@
         <p>Vin-код: {{ client.carInfo.vinCode }}</p>
         <p>Державний номер: {{ client.carInfo.carNumber }}</p>
       </mat-card-title>
-      <mat-card-subtitle>
-        <p>{{ client.clientInfo.date }}</p>
-        <p>Майстер: <b>{{ client.workInfo.craftsManName }}</b></p>
-        <p>Загальна вартість замовлення: {{ client.workInfo.totalCost }} Грн</p>
-      </mat-card-subtitle>
+      <button mat-fab color="primary" class="btn__edit__order__card">
+        <mat-icon aria-label="Редагувати картку замовлення">edit</mat-icon>
+      </button>
     </mat-card-header>
     <mat-card-content>
-      <mat-expansion-panel class="expansion__panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title>Загальна інформація про клієнта</mat-panel-title>
-        </mat-expansion-panel-header>
-        <table class="client__info__table">
-          <tr>
-            <td>ПІБ клієнта:</td>
-            <td>{{ client.clientInfo.name }}</td>
-          </tr>
-          <tr>
-            <td>Номер телефону:</td>
-            <td>{{ client.clientInfo.phoneNumber }}</td>
-          </tr>
-        </table>
-      </mat-expansion-panel>
+      <h4>Загальна інформація про клієнта</h4>
+      <table class="client__info__table">
+        <tr>
+          <td>ПІБ клієнта:</td>
+          <td>{{ client.clientInfo.name }}</td>
+        </tr>
+        <tr>
+          <td>Номер телефону:</td>
+          <td>{{ client.clientInfo.phoneNumber }}</td>
+        </tr>
+      </table>
 
-      <mat-expansion-panel class="expansion__panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title>Інформація про авто</mat-panel-title>
-        </mat-expansion-panel-header>
-        <table class="car__info__table">
-          <tr>
-            <td>Марка:</td>
-            <td>{{ client.carInfo.marque }}</td>
-          </tr>
-          <tr>
-            <td>Модель:</td>
-            <td>{{ client.carInfo.model }}</td>
-          </tr>
-          <tr>
-            <td>Рік:</td>
-            <td>{{ client.carInfo.carYear }}</td>
-          </tr>
-          <tr>
-            <td>Пробіг:</td>
-            <td>{{ client.carInfo.miles }}</td>
-          </tr>
-        </table>
-      </mat-expansion-panel>
+      <h4>Інформація про авто</h4>
+      <table class="car__info__table">
+        <tr>
+          <td>Марка:</td>
+          <td>{{ client.carInfo.marque }}</td>
+        </tr>
+        <tr>
+          <td>Модель:</td>
+          <td>{{ client.carInfo.model }}</td>
+        </tr>
+        <tr>
+          <td>Рік:</td>
+          <td>{{ client.carInfo.carYear }}</td>
+        </tr>
+        <tr>
+          <td>Пробіг:</td>
+          <td>{{ client.carInfo.miles }}</td>
+        </tr>
+      </table>
 
-      <mat-expansion-panel class="expansion__panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title>Інформація про виконану роботу</mat-panel-title>
-        </mat-expansion-panel-header>
-        <b>Виконана робота (Вартість: {{ client.workInfo.workCost }} Грн)</b>
-        <p>{{ client.workInfo.doneWork }}</p>
-        <b>Використані деталі:</b>
-        <table *ngIf="client.carInfo.details != undefined; else noDetails" class="detail__info__table">
-          <tr>
-            <th>Назва</th>
-            <th>Ціна</th>
-          </tr>
-          <tr *ngFor="let detail of client.carInfo.details">
-            <td>{{ detail.name }}</td>
-            <td>{{ detail.cost }}</td>
-          </tr>
-          <tr>
-            <td>Загальна вартість</td>
-            <td>{{ client.workInfo.detailCost }} Грн</td>
-          </tr>
-        </table>
-        <ng-template #noDetails>
-          <p>Деталі не були використані</p>
-        </ng-template>
-      </mat-expansion-panel>
+      <h4>Історія виконаних робіт</h4>
+      <div class="order__history__container"></div>
+
+<!--      <mat-expansion-panel class="expansion__panel">-->
+<!--        <mat-expansion-panel-header>-->
+<!--          <mat-panel-title>Інформація про виконану роботу</mat-panel-title>-->
+<!--        </mat-expansion-panel-header>-->
+<!--        <b>Виконана робота (Вартість: {{ client.workInfo.workCost }} Грн)</b>-->
+<!--        <p>{{ client.workInfo.doneWork }}</p>-->
+<!--        <b>Використані деталі:</b>-->
+<!--        <table *ngIf="client.carInfo.details != undefined; else noDetails" class="detail__info__table">-->
+<!--          <tr>-->
+<!--            <th>Назва</th>-->
+<!--            <th>Ціна</th>-->
+<!--          </tr>-->
+<!--          <tr *ngFor="let detail of client.carInfo.details">-->
+<!--            <td>{{ detail.name }}</td>-->
+<!--            <td>{{ detail.cost }}</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Загальна вартість</td>-->
+<!--            <td>{{ client.workInfo.detailCost }} Грн</td>-->
+<!--          </tr>-->
+<!--        </table>-->
+<!--        <ng-template #noDetails>-->
+<!--          <p>Деталі не були використані</p>-->
+<!--        </ng-template>-->
+<!--      </mat-expansion-panel>-->
     </mat-card-content>
     <mat-card-actions class="control__panel">
       <button
@@ -121,4 +115,10 @@
       </ng-template>
     </mat-card-actions>
   </mat-card>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="btn__add__new__order"
+    (click)="addNewOrder()">Додати нове замовлення</button>
 </div>
