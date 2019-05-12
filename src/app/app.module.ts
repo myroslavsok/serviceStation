@@ -27,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -45,6 +46,7 @@ import { UserNavbarComponent } from './components/user-navbar/user-navbar.compon
 import { LoginComponent } from './components/login/login.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { ForgotPasswordDialogComponent } from './components/login/module-windows/forgot-password';
+import { EditOrderCardDialogComponent } from './components/search-client/module-windows/edit-order-card-dialog/edit-order-card-dialog.component';
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import { ForgotPasswordDialogComponent } from './components/login/module-windows
     UserNavbarComponent,
     LoginComponent,
     ForgotPasswordDialogComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    EditOrderCardDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -84,10 +87,12 @@ import { ForgotPasswordDialogComponent } from './components/login/module-windows
     MatIconModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   entryComponents: [
-    ForgotPasswordDialogComponent
+    ForgotPasswordDialogComponent,
+    EditOrderCardDialogComponent
   ],
   providers: [
     СrudDBService,

@@ -38,6 +38,12 @@
    position: relative;
    border-top: 5px solid $material-blue-dark;
 
+  .order__card__category__header {
+    // TODO: add margin-left 15?
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
+
   .btn__edit__order__card {
     position: absolute;
     top: 30px;

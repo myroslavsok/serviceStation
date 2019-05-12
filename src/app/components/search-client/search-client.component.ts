@@ -2,6 +2,9 @@ import {Component, NgZone, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {СrudDBService} from '../../shared/services/сrud-d-b.service';
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material';
+import {ForgotPasswordDialogComponent} from '../login/module-windows/forgot-password';
+import {EditOrderCardDialogComponent} from './module-windows/edit-order-card-dialog/edit-order-card-dialog.component';
 
 @Component({
   selector: 'app-search-client',
@@ -14,7 +17,8 @@ export class SearchClientComponent implements OnInit {
     private crudDBService: СrudDBService,
     private snackBar: MatSnackBar,
     private router: Router,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    public dialog: MatDialog
   ) {
   }
 
@@ -67,6 +71,20 @@ export class SearchClientComponent implements OnInit {
       .closeOpenClientOrder(client);
     this.snackBar.open('Статус замовлення змінено', 'Ок', {
       duration: 2000,
+    });
+  }
+
+  editOrderCard(): void {
+    const dialogRef = this.dialog.open(EditOrderCardDialogComponent, {
+      width: '600px'
+      // data: {name: this.name, animal: this.animal}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      // TODO: delete this stuff
+      // this.snackBar.open('Картка успішно редагована', 'Ок', {
+      //   duration: 2000,
+      // });
+      // this.animal = result;
     });
   }
 

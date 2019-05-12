@@ -35,12 +35,12 @@
         <p>Vin-код: {{ client.carInfo.vinCode }}</p>
         <p>Державний номер: {{ client.carInfo.carNumber }}</p>
       </mat-card-title>
-      <button mat-fab color="primary" class="btn__edit__order__card">
+      <button mat-fab (click)="editOrderCard()" matTooltip="Редагувати картку замовлення" color="primary" class="btn__edit__order__card">
         <mat-icon aria-label="Редагувати картку замовлення">edit</mat-icon>
       </button>
     </mat-card-header>
     <mat-card-content>
-      <h4>Загальна інформація про клієнта</h4>
+      <h4 class="order__card__category__header">Загальна інформація про клієнта</h4>
       <table class="client__info__table">
         <tr>
           <td>ПІБ клієнта:</td>
@@ -52,7 +52,7 @@
         </tr>
       </table>
 
-      <h4>Інформація про авто</h4>
+      <h4 class="order__card__category__header">Інформація про авто</h4>
       <table class="car__info__table">
         <tr>
           <td>Марка:</td>
@@ -72,7 +72,7 @@
         </tr>
       </table>
 
-      <h4>Історія виконаних робіт</h4>
+      <h4 class="order__card__category__header">Історія виконаних робіт</h4>
       <div class="order__history__container"></div>
 
 <!--      <mat-expansion-panel class="expansion__panel">-->
