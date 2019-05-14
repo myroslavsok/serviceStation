@@ -74,10 +74,10 @@ export class SearchClientComponent implements OnInit {
     });
   }
 
-  editOrderCard(): void {
+  editOrderCard(orderInfo): void {
     const dialogRef = this.dialog.open(EditOrderCardDialogComponent, {
-      width: '600px'
-      // data: {name: this.name, animal: this.animal}
+      width: '600px',
+      data: orderInfo
     });
     dialogRef.afterClosed().subscribe(result => {
       // TODO: delete this stuff

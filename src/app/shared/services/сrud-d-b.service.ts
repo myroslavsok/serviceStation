@@ -84,12 +84,22 @@ export class СrudDBService {
     this.clientsList.remove(key).catch(error => this.handleError(error));
   }
 
-  closeOpenClientOrder(updatedClient) {
-    const key = updatedClient.key;
+  // Updating client info
+  updateClientInfo(key, updatedClient) {
     this.firebase.object(this.dbPathClients + `/${key}`)
       .update(updatedClient)
       .catch(error => this.handleError(error));
+  }
+
+  closeOpenClientOrder(updatedClient) {
+    const key = updatedClient.key;
+    this.updateClientInfo(key, updatedClient);
     console.log('clients after open-close', this.clients);
+  }
+
+  addNewOrder(updatedClient) {
+    const key = updatedClient.key;
+    this.updateClientInfo(key, updatedClient);
   }
 
   private handleError(error) {
