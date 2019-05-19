@@ -97,9 +97,13 @@ export class СrudDBService {
     console.log('clients after open-close', this.clients);
   }
 
-  addNewOrder(updatedClient) {
+  updateGeneralUserInfo(updatedClient): void {
     const key = updatedClient.key;
     this.updateClientInfo(key, updatedClient);
+  }
+
+  addNewOrder(): void {
+    alert('Works');
   }
 
   private handleError(error) {

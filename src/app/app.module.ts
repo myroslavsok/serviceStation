@@ -46,7 +46,10 @@ import { UserNavbarComponent } from './components/user-navbar/user-navbar.compon
 import { LoginComponent } from './components/login/login.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { ForgotPasswordDialogComponent } from './components/login/module-windows/forgot-password';
-import { EditOrderCardDialogComponent } from './components/search-client/module-windows/edit-order-card-dialog/edit-order-card-dialog.component';
+import { EditOrderCardDialogComponent }
+        from './components/search-client/module-windows/edit-order-card-dialog/edit-order-card-dialog.component';
+import { AddOrderDialogComponent } from './components/search-client/module-windows/add-order-dialog/add-order-dialog.component';
+import { DatepickerComponent } from './shared/components/datepicker/datepicker.component';
 
 
 @NgModule({
@@ -58,7 +61,9 @@ import { EditOrderCardDialogComponent } from './components/search-client/module-
     LoginComponent,
     ForgotPasswordDialogComponent,
     AccountSettingsComponent,
-    EditOrderCardDialogComponent
+    EditOrderCardDialogComponent,
+    AddOrderDialogComponent,
+    DatepickerComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,8 @@ import { EditOrderCardDialogComponent } from './components/search-client/module-
   ],
   entryComponents: [
     ForgotPasswordDialogComponent,
-    EditOrderCardDialogComponent
+    EditOrderCardDialogComponent,
+    AddOrderDialogComponent
   ],
   providers: [
     СrudDBService,

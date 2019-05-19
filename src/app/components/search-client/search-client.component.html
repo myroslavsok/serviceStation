@@ -33,7 +33,7 @@
       mat-raised-button
       color="primary"
       class="btn__add__new__order"
-      (click)="addNewOrder()">Додати нове замовлення</button>
+      (click)="navigateToAddingClient()">Додати нового клієнта</button>
   </div>
 
 <!--  ORDER CARD -->
@@ -45,8 +45,11 @@
         <p>Державний номер: {{ client.carInfo.carNumber }}</p>
       </mat-card-title>
 <!--      CONTROL PANEL-->
-      <button mat-fab (click)="editOrderCard(client)" matTooltip="Редагувати картку замовлення" color="primary" class="btn__edit__order__card">
+      <button mat-fab (click)="editClientCard(client)" matTooltip="Редагувати картку клієнта" color="primary" class="btn__edit__order__card">
         <mat-icon aria-label="Редагувати картку замовлення">edit</mat-icon>
+      </button>
+      <button mat-fab (click)="addOrderToOrderCard()" matTooltip="Додати нове замовлення" color="accent" class="btn__add__order">
+        <mat-icon aria-label="Додати нове замовлення">add</mat-icon>
       </button>
     </mat-card-header>
     <mat-card-content>

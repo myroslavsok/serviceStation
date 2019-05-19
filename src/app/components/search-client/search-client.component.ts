@@ -3,8 +3,8 @@ import {MatSnackBar} from '@angular/material';
 import {СrudDBService} from '../../shared/services/сrud-d-b.service';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
-import {ForgotPasswordDialogComponent} from '../login/module-windows/forgot-password';
 import {EditOrderCardDialogComponent} from './module-windows/edit-order-card-dialog/edit-order-card-dialog.component';
+import {AddOrderDialogComponent} from './module-windows/add-order-dialog/add-order-dialog.component';
 
 @Component({
   selector: 'app-search-client',
@@ -19,8 +19,7 @@ export class SearchClientComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     public dialog: MatDialog
-  ) {
-  }
+  ) {}
 
   clients = [];
 
@@ -49,13 +48,12 @@ export class SearchClientComponent implements OnInit {
   clearSearchValue() {
     this.searchValue.carInfo.vinCode = '';
     this.searchValue.carInfo.carNumber = '';
-    console.log('[method clearSearchValue]: worked');
   }
 
   ngOnInit() {
     this.crudDBService.getClientsArr(() => {
       this.clients = this.crudDBService.clients;
-      console.log('clients', this.clients);
+      console.log('found clients', this.clients);
     });
     this.searchBySelected = 'vinCode';
   }
@@ -74,10 +72,10 @@ export class SearchClientComponent implements OnInit {
     });
   }
 
-  editOrderCard(orderInfo): void {
+  editClientCard(clientInfo): void {
     const dialogRef = this.dialog.open(EditOrderCardDialogComponent, {
       width: '600px',
-      data: orderInfo
+      data: clientInfo
     });
     dialogRef.afterClosed().subscribe(result => {
       // TODO: delete this stuff
@@ -88,8 +86,14 @@ export class SearchClientComponent implements OnInit {
     });
   }
 
-  addNewOrder() {
+  navigateToAddingClient() {
     this.ngZone.run(() => this.router.navigate(['add-client'])).then();
+  }
+
+  addOrderToOrderCard() {
+    const dialogRef = this.dialog.open(AddOrderDialogComponent, {
+      width: '600px',
+    });
   }
 
 }

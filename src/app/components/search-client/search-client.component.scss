@@ -42,10 +42,18 @@
     margin-left: 15px;
   }
 
-  .btn__edit__order__card {
+  .btn__edit__order__card,
+  .btn__add__order {
     position: absolute;
-    top: 30px;
     right: 30px;
+  }
+
+  .btn__edit__order__card {
+    top: 30px;
+  }
+
+  .btn__add__order {
+    top: 110px;
   }
 
   .order__history__container {
