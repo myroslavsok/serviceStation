@@ -1,0 +1,43 @@
+<h2>Редагування замовлення</h2>
+<div mat-dialog-content>
+  <h3>Інформація про клієнта</h3>
+  <div class="clients__info__container">
+    <mat-form-field>
+      <input matInput [(ngModel)]="orderInfo.clientInfo.name" placeholder="ПІБ">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="orderInfo.clientInfo.phoneNumber" placeholder="Номер телефону">
+    </mat-form-field>
+  </div>
+  <h3>Інформація про автомобіль</h3>
+  <div class="car__info__container">
+    <mat-form-field>
+      <input matInput [(ngModel)]="orderInfo.carInfo.vinCode" placeholder="Vin-код">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="orderInfo.carInfo.carNumber" placeholder="Реєстраційний номер">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="orderInfo.carInfo.carYear" placeholder="Рік випуску">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="orderInfo.carInfo.marque" placeholder="Марка">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="orderInfo.carInfo.model" placeholder="Модель">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="orderInfo.carInfo.miles" placeholder="Пробіг (км)">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancelEditingCard()">Відмінити</button>
+  <button
+    mat-raised-button
+    (click)="confirmEditing()"
+    [mat-dialog-close]="orderInfo"
+    color="primary"
+    cdkFocusInitial>Підтвердити
+  </button>
+</div>

@@ -50,6 +50,7 @@ import { EditOrderCardDialogComponent }
         from './components/search-client/module-windows/edit-order-card-dialog/edit-order-card-dialog.component';
 import { AddOrderDialogComponent } from './components/search-client/module-windows/add-order-dialog/add-order-dialog.component';
 import { DatepickerComponent } from './shared/components/datepicker/datepicker.component';
+import { DetailsInputComponent } from './shared/components/details-input/details-input.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { DatepickerComponent } from './shared/components/datepicker/datepicker.c
     AccountSettingsComponent,
     EditOrderCardDialogComponent,
     AddOrderDialogComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    DetailsInputComponent
   ],
   imports: [
     BrowserModule,
