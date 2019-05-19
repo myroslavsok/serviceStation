@@ -1,7 +1,23 @@
-<h3>Дата замовлення</h3>
-<app-datepicker (onChooseDate)="chooseDate($event)"></app-datepicker>
+<h2>Додати замовлення до картки</h2>
+<div mat-dialog-content>
+  <h3>Дата замовлення</h3>
+  <app-datepicker (onChooseDate)="chooseDate($event)"></app-datepicker>
 
-<!--Done work-->
+  <h3>Що ремонтуємо?</h3>
+  <app-add-done-work (onCollectWorkInfo)="collectWorkInfo($event)"></app-add-done-work>
 
-<h3>Додати запчастини</h3>
-<app-details-input (onAddedDetailsInfo)="applyDetailsInfo($event)"></app-details-input>
+  <h3>Додати запчастини</h3>
+  <app-details-input (onAddedDetailsInfo)="applyDetailsInfo($event)"></app-details-input>
+</div>
+
+<div mat-dialog-actions>
+<!--  <button mat-button (click)="cancelEditingCard()">Відмінити</button>-->
+<!--  <button-->
+<!--    mat-raised-button-->
+<!--    (click)="confirmEditing()"-->
+<!--    [mat-dialog-close]="orderInfo"-->
+<!--    color="primary"-->
+<!--    cdkFocusInitial>Підтвердити-->
+<!--  </button>-->
+</div>
+

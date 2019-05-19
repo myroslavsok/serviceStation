@@ -1,0 +1,33 @@
+<mat-form-field appearance="outline" class="done__work__input">
+  <mat-label>Виконана робота</mat-label>
+  <textarea
+    matInput
+    #doneWork
+    (change)="collectWorkInfo()"
+    cdkTextareaAutosize
+    cdkAutosizeMinRows="10"
+    cdkAutosizeMaxRows="10"
+    placeholder="Виконана робота">
+  </textarea>
+</mat-form-field>
+
+<mat-form-field>
+  <input
+    matInput
+    type="text"
+    mask="separator"
+    #costOfWork
+    (change)="collectWorkInfo()"
+    placeholder="Вартість робіт (грн)"
+    autocomplete="off">
+</mat-form-field>
+
+<mat-form-field>
+  <input
+    matInput
+    type="text"
+    #craftsManName
+    (change)="collectWorkInfo()"
+    placeholder="Хто виконав?"
+    autocomplete="off">
+</mat-form-field>

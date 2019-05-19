@@ -51,6 +51,7 @@ import { EditOrderCardDialogComponent }
 import { AddOrderDialogComponent } from './components/search-client/module-windows/add-order-dialog/add-order-dialog.component';
 import { DatepickerComponent } from './shared/components/datepicker/datepicker.component';
 import { DetailsInputComponent } from './shared/components/details-input/details-input.component';
+import { AddDoneWorkComponent } from './shared/components/add-done-work/add-done-work.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { DetailsInputComponent } from './shared/components/details-input/details
     EditOrderCardDialogComponent,
     AddOrderDialogComponent,
     DatepickerComponent,
-    DetailsInputComponent
+    DetailsInputComponent,
+    AddDoneWorkComponent
   ],
   imports: [
     BrowserModule,
