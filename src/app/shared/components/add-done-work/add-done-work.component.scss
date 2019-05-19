@@ -1,8 +1,17 @@
 .done__work__input {
-  width: 95%;
+  width: 100%;
   margin: auto;
 
   textarea {
     resize: none;
+  }
+}
+
+.wrapper__additional_field {
+  display: flex;
+  justify-content: space-between;
+
+  mat-form-field {
+    width: 48%;
   }
 }

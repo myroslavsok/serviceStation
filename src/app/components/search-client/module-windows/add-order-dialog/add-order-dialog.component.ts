@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-add-order-dialog',
@@ -12,7 +13,10 @@ export class AddOrderDialogComponent {
   workInfo = {};
 
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<AddOrderDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public orderInfo
+  ) { }
 
   chooseDate(chosenDate) {
     this.orderDate = chosenDate;
@@ -27,6 +31,15 @@ export class AddOrderDialogComponent {
   collectWorkInfo(workInfo) {
     this.workInfo = workInfo;
     console.log('[add-order-dialog, collectWorkInfo]', this.workInfo);
+  }
+
+  cancelAddingOrder() {
+    this.dialogRef.close();
+  }
+
+  confirmAddingOrder() {
+    console.log('orderInfo', this.orderInfo);
+    // this.crudDBService.updateGeneralUserInfo(this.orderInfo);
   }
 
 }

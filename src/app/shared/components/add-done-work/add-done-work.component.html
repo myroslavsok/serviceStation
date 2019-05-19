@@ -11,23 +11,25 @@
   </textarea>
 </mat-form-field>
 
-<mat-form-field>
-  <input
-    matInput
-    type="text"
-    mask="separator"
-    #costOfWork
-    (change)="collectWorkInfo()"
-    placeholder="Вартість робіт (грн)"
-    autocomplete="off">
-</mat-form-field>
+<div class="wrapper__additional_field">
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      mask="separator"
+      #costOfWork
+      (change)="collectWorkInfo()"
+      placeholder="Вартість робіт (грн)"
+      autocomplete="off">
+  </mat-form-field>
 
-<mat-form-field>
-  <input
-    matInput
-    type="text"
-    #craftsManName
-    (change)="collectWorkInfo()"
-    placeholder="Хто виконав?"
-    autocomplete="off">
-</mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      #craftsManName
+      (change)="collectWorkInfo()"
+      placeholder="Хто виконав?"
+      autocomplete="off">
+  </mat-form-field>
+</div>
