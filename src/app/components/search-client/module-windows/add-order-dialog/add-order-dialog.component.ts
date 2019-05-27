@@ -1,5 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {СrudDBService} from '../../../../shared/services/сrud-d-b.service';
 
 @Component({
   selector: 'app-add-order-dialog',
@@ -8,29 +9,24 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 })
 export class AddOrderDialogComponent {
 
-  orderDate = '';
-  carDetailsInfo = {};
-  workInfo = {};
-
+  newOrder: OrderInfo = {} as any;
 
   constructor(
     public dialogRef: MatDialogRef<AddOrderDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public orderInfo
+    @Inject(MAT_DIALOG_DATA) public clientInfo,
+    private crudDBService: СrudDBService,
   ) { }
 
   chooseDate(chosenDate) {
-    this.orderDate = chosenDate;
-    console.log('[add-order-dialog, chooseDate]', this.chooseDate);
+    this.newOrder.orderDate = chosenDate;
   }
 
   applyDetailsInfo(carDetailsInfo) {
-    this.carDetailsInfo = carDetailsInfo;
-    console.log('[add-order-dialog, applyDetailsInfo]', this.carDetailsInfo);
+    this.newOrder.carInfo = carDetailsInfo;
   }
 
   collectWorkInfo(workInfo) {
-    this.workInfo = workInfo;
-    console.log('[add-order-dialog, collectWorkInfo]', this.workInfo);
+    this.newOrder.workInfo = workInfo;
   }
 
   cancelAddingOrder() {
@@ -38,8 +34,9 @@ export class AddOrderDialogComponent {
   }
 
   confirmAddingOrder() {
-    console.log('orderInfo', this.orderInfo);
-    // this.crudDBService.updateGeneralUserInfo(this.orderInfo);
+    console.log('add new order modal ', this.newOrder);
+    this.crudDBService.addNewOrder(this.clientInfo.key, this.newOrder);
+    this.dialogRef.close();
   }
 
 }

@@ -90,9 +90,10 @@ export class SearchClientComponent implements OnInit {
     this.ngZone.run(() => this.router.navigate(['add-client'])).then();
   }
 
-  addOrderToOrderCard() {
+  addOrderToOrderCard(clientInfo): void {
     const dialogRef = this.dialog.open(AddOrderDialogComponent, {
       width: '600px',
+      data: clientInfo
     });
   }
 
