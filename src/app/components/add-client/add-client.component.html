@@ -96,30 +96,9 @@
         </div>
 
         <h4>Додати запчастини</h4>
-        <div>
-          <app-details-input (onAddedDetailsInfo)="applyDetailsInfo($event)"></app-details-input>
-<!--          <div class="cardetail__info">-->
-<!--            <mat-form-field class="cardetail__info__input">-->
-<!--              <input matInput #detailName placeholder="Назва" autocomplete="off">-->
-<!--            </mat-form-field>-->
-<!--            <mat-form-field class="cardetail__info__input">-->
-<!--              <input matInput type="text" mask="separator" #detailCost placeholder="Ціна" autocomplete="off">-->
-<!--            </mat-form-field>-->
-<!--            <button mat-stroked-button color="primary" class="cardetail__info__btn" type="button"-->
-<!--                    (click)="addNewDetail(detailName, detailCost)">Додати запчастину-->
-<!--            </button>-->
-<!--          </div>-->
-<!--          <div class="added__details">-->
-<!--            <mat-chip-list class="detail">-->
-<!--              <mat-chip-->
-<!--                *ngFor="let carDetail of carsDetails"-->
-<!--                class="detail__chip">{{ carDetail.name }} <span class="detail__cost">{{ carDetail.cost }} Грн</span>-->
-<!--                <button (click)="deleteDetail(carDetail.id)" class="detail__delete">✖</button>-->
-<!--              </mat-chip>-->
-<!--            </mat-chip-list>-->
-<!--          </div>-->
-<!--          <h4 class="total__details__cost">Загальна вартість делатей: {{ totalDetailCost }} Грн</h4>-->
-        </div>
+        <app-details-input (onAddedDetailsInfo)="applyDetailsInfo($event)"></app-details-input>
+
+
       </mat-card-content>
       <mat-card-actions class="actions__panel">
         <button

@@ -16,7 +16,6 @@ export class AddClientComponent implements OnInit {
   constructor(private crudDBService: СrudDBService,
               private snackBar: MatSnackBar) { }
 
-  // public capitalLettersOnly = {'B': { pattern: new RegExp('^[A-Z\\d&Ñ]+$')}};
   marqueControl = new FormControl();
   modelControl = new FormControl();
 
@@ -24,21 +23,9 @@ export class AddClientComponent implements OnInit {
   filteredOptionsModel: Observable<string[]>;
 
   @ViewChild('carMarque') carMarque: ElementRef;
-  @ViewChild('detailName') detailName: ElementRef;
-  @ViewChild('detailCost') detailCost: ElementRef;
   orderDate;
   workInfo;
   carDetailsInfo;
-
-  // Car's details
-  carsDetails: Array<{
-    id;
-    name;
-    cost;
-  }> = [];
-
-  totalDetailCost = 0;
-
 
   ngOnInit() {
     this.crudDBService.getCarsArr(() => {
@@ -120,10 +107,6 @@ export class AddClientComponent implements OnInit {
     form.reset();
     this.marqueControl.setValue('');
     this.modelControl.setValue('');
-    this.detailName.nativeElement.value = '';
-    this.detailCost.nativeElement.value = '';
-    this.carsDetails = [];
-    this.totalDetailCost = 0;
   }
 
   createClient(form) {
@@ -135,8 +118,6 @@ export class AddClientComponent implements OnInit {
     client.clientInfo.date = this.orderDate;
     client.carInfo.marque = this.marqueControl.value;
     client.carInfo.model = this.modelControl.value;
-    client.carInfo.details = this.carsDetails;
-    client.workInfo.detailCost = this.totalDetailCost;
     if (!client.workInfo.workCost) {
       client.workInfo.workCost = 0;
     }
@@ -179,38 +160,6 @@ export class AddClientComponent implements OnInit {
       console.log(error);
       return alert('Помилка при спробі додати інформацію про замовлення клієнта: ' + error + ' Спробуйте заповнити усі поля');
     }
-  }
-
-  addNewDetail(detailName, detailCost) {
-    if (!detailName.value || !detailCost.value) {
-      return this.snackBar.open('Вкажіть назву та ціну деталі', 'Зрозуміло', {
-        duration: 2000,
-      });
-    }
-    this.carsDetails.push({
-      id: this.carsDetails.length + 1,
-      name: detailName.value,
-      cost: detailCost.value
-    });
-    this.calculateTotalDetailCost();
-    this.detailName.nativeElement.value = '';
-    this.detailCost.nativeElement.value = '';
-  }
-
-  deleteDetail(carDetailId) {
-    this.carsDetails = this.carsDetails.filter(detail => {
-      return (detail.id !== carDetailId);
-    });
-    this.calculateTotalDetailCost();
-  }
-
-  calculateTotalDetailCost() {
-    let detailCost = 0;
-    this.carsDetails.forEach(detail => {
-      const cost = detail.cost.replace(/\s/g, '');
-      detailCost += parseInt(cost, 10);
-    });
-    this.totalDetailCost = detailCost;
   }
 
   chooseDate(chosenDate) {
