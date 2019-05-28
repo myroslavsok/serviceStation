@@ -92,41 +92,7 @@
 
 
         <div ngModelGroup="workInfo" #workInfo="ngModelGroup">
-          <mat-form-field appearance="outline" class="done__work__input">
-            <mat-label>Виконана робота</mat-label>
-            <textarea
-              matInput
-              cdkTextareaAutosize
-              cdkAutosizeMinRows="10"
-              cdkAutosizeMaxRows="10"
-              placeholder="Виконана робота"
-              name="doneWork"
-              ngModel
-            ></textarea>
-          </mat-form-field>
-          <mat-form-field>
-            <input
-              matInput
-              type="text"
-              mask="separator"
-              placeholder="Вартість робіт (грн)"
-              #workCost
-              autocomplete="off"
-              name="workCost"
-              ngModel
-            >
-          </mat-form-field>
-          <mat-form-field>
-            <input
-              matInput
-              type="text"
-              placeholder="Хто виконав?"
-              #craftsManName
-              autocomplete="off"
-              name="craftsManName"
-              ngModel
-            >
-          </mat-form-field>
+          <app-add-done-work (onCollectWorkInfo)="collectWorkInfo($event)"></app-add-done-work>
         </div>
 
         <h4>Додати запчастини</h4>
