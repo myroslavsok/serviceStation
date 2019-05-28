@@ -103,27 +103,75 @@ export class AddClientComponent implements OnInit {
     }
   }
 
-  clearFormAndFiledValues(form) {
-    form.reset();
-    this.marqueControl.setValue('');
-    this.modelControl.setValue('');
+  chooseDate(chosenDate) {
+    this.orderDate = chosenDate;
+  }
+
+  collectWorkInfo(workInfo) {
+    this.workInfo = workInfo;
+    console.log('workInfo', this.workInfo);
+  }
+
+  applyDetailsInfo(carDetailsInfo) {
+    this.carDetailsInfo = carDetailsInfo;
+    console.log('carDetailsInfo', this.carDetailsInfo);
+  }
+
+  addClient(addClientForm) {
+    if (!addClientForm.valid) {
+      return this.snackBar.open(`Поле "Vin-код" є обов'язковим`, 'Ок', {
+        duration: 2000,
+      });
+    }
+    console.log('form', addClientForm);
+    let client = this.createClient(addClientForm);
+    console.log('client', client);
+    // this.addCarToDBIfNotExists(client.carInfo.marque, client.carInfo.model);
+    // client = this.setDefaultValuesForEmptyFormFields(client);
+    // this.clearFormAndFiledValues(addClientForm);
+    // console.log('[add-client] client = ', client);
+    // try {
+    //   this.crudDBService.addClient(client);
+    //   this.snackBar.open('Клієнт успішно доданий до бази', 'Ок', {
+    //     duration: 2000,
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    //   return alert('Помилка при спробі додати інформацію про замовлення клієнта: ' + error + ' Спробуйте заповнити усі поля');
+    // }
   }
 
   createClient(form) {
     const client = {
       clientInfo: form.value.clientInfo,
       carInfo: form.value.carInfo,
-      workInfo: form.value.workInfo
+      orders: [{
+        orderDate: this.orderDate,
+        carDetailsInfo: this.carDetailsInfo,
+        workInfo: this.workInfo,
+        totalCost: 0
+      }]
     };
-    client.clientInfo.date = this.orderDate;
     client.carInfo.marque = this.marqueControl.value;
     client.carInfo.model = this.modelControl.value;
-    if (!client.workInfo.workCost) {
-      client.workInfo.workCost = 0;
-    }
-    client.workInfo.totalCost = +client.workInfo.workCost + +client.workInfo.detailCost;
+    client.orders[0].totalCost = +client.orders[0].workInfo.costOfWork + +client.orders[0].carDetailsInfo.totalDetailCost;
     client.clientInfo.status = 'open';
     return client;
+
+    // const client = {
+    //   clientInfo: form.value.clientInfo,
+    //   carInfo: form.value.carInfo,
+    //   workInfo: form.value.workInfo
+    // };
+    // client.clientInfo.date = this.orderDate;
+    // client.carInfo.marque = this.marqueControl.value;
+    // client.carInfo.model = this.modelControl.value;
+    // if (!client.workInfo.workCost) {
+    //   client.workInfo.workCost = 0;
+    // }
+    // client.workInfo.totalCost = +client.workInfo.workCost + +client.workInfo.detailCost;
+    // client.clientInfo.status = 'open';
+    // return client;
   }
 
   setDefaultValuesForEmptyFormFields(client) {
@@ -140,39 +188,10 @@ export class AddClientComponent implements OnInit {
     return client;
   }
 
-  addClient(addClientForm) {
-    if (!addClientForm.valid) {
-      return this.snackBar.open(`Поле "Vin-код" є обов'язковим`, 'Ок', {
-        duration: 2000,
-      });
-    }
-    let client = this.createClient(addClientForm);
-    this.addCarToDBIfNotExists(client.carInfo.marque, client.carInfo.model);
-    client = this.setDefaultValuesForEmptyFormFields(client);
-    this.clearFormAndFiledValues(addClientForm);
-    console.log('[add-client] client = ', client);
-    try {
-      this.crudDBService.addClient(client);
-      this.snackBar.open('Клієнт успішно доданий до бази', 'Ок', {
-        duration: 2000,
-      });
-    } catch (error) {
-      console.log(error);
-      return alert('Помилка при спробі додати інформацію про замовлення клієнта: ' + error + ' Спробуйте заповнити усі поля');
-    }
+  clearFormAndFiledValues(form) {
+    form.reset();
+    this.marqueControl.setValue('');
+    this.modelControl.setValue('');
   }
 
-  chooseDate(chosenDate) {
-    this.orderDate = chosenDate;
-  }
-
-  collectWorkInfo(workInfo) {
-    this.workInfo = workInfo;
-    console.log('workInfo', this.workInfo);
-  }
-
-  applyDetailsInfo(carDetailsInfo) {
-    this.carDetailsInfo = carDetailsInfo;
-    console.log('carDetailsInfo', this.carDetailsInfo);
-  }
 }

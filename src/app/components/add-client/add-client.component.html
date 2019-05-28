@@ -90,12 +90,10 @@
           </mat-form-field>
         </div>
 
+        <h3>Виконана робота</h3>
+        <app-add-done-work (onCollectWorkInfo)="collectWorkInfo($event)"></app-add-done-work>
 
-        <div ngModelGroup="workInfo" #workInfo="ngModelGroup">
-          <app-add-done-work (onCollectWorkInfo)="collectWorkInfo($event)"></app-add-done-work>
-        </div>
-
-        <h4>Додати запчастини</h4>
+        <h3>Додати запчастини</h3>
         <app-details-input (onAddedDetailsInfo)="applyDetailsInfo($event)"></app-details-input>
 
 
