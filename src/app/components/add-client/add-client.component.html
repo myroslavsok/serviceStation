@@ -91,10 +91,16 @@
         </div>
 
         <h3>Виконана робота</h3>
-        <app-add-done-work (onCollectWorkInfo)="collectWorkInfo($event)"></app-add-done-work>
+        <app-add-done-work
+          #doneWorkComponent
+          (onCollectWorkInfo)="collectWorkInfo($event)">
+        </app-add-done-work>
 
         <h3>Додати запчастини</h3>
-        <app-details-input (onAddedDetailsInfo)="applyDetailsInfo($event)"></app-details-input>
+        <app-details-input
+          #carDetailsComponent
+          (onAddedDetailsInfo)="applyDetailsInfo($event)">
+        </app-details-input>
 
 
       </mat-card-content>

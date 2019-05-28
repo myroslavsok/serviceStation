@@ -22,10 +22,16 @@ export class AddClientComponent implements OnInit {
   filteredOptionsMarque: Observable<string[]>;
   filteredOptionsModel: Observable<string[]>;
 
+  // Child components
+  @ViewChild('doneWorkComponent') doneWorkComponent;
+  @ViewChild('carDetailsComponent') carDetailsComponent;
+  // Client info variables
   @ViewChild('carMarque') carMarque: ElementRef;
   orderDate;
   workInfo;
   carDetailsInfo;
+
+
 
   ngOnInit() {
     this.crudDBService.getCarsArr(() => {
@@ -105,17 +111,14 @@ export class AddClientComponent implements OnInit {
 
   chooseDate(chosenDate) {
     this.orderDate = chosenDate;
-    console.log('orderDate', this.orderDate);
   }
 
   collectWorkInfo(workInfo) {
     this.workInfo = workInfo;
-    console.log('workInfo', this.workInfo);
   }
 
   applyDetailsInfo(carDetailsInfo) {
     this.carDetailsInfo = carDetailsInfo;
-    console.log('carDetailsInfo', this.carDetailsInfo);
   }
 
   addClient(addClientForm) {
@@ -129,15 +132,19 @@ export class AddClientComponent implements OnInit {
     client = this.setDefaultValuesForEmptyFormFields(client);
     this.clearFormAndFiledValues(addClientForm);
     console.log('[add-client] client = ', client);
-    try {
-      this.crudDBService.addClient(client);
-      this.snackBar.open('Клієнт успішно доданий до бази', 'Ок', {
-        duration: 2000,
-      });
-    } catch (error) {
-      console.log(error);
-      return alert('Помилка при спробі додати інформацію: ' + error + ' Спробуйте заповнити усі поля');
-    }
+    // try {
+    //   this.crudDBService.addClient(client);
+    //   this.snackBar.open('Клієнт успішно доданий до бази', 'Ок', {
+    //     duration: 2000,
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    //   return alert('Помилка при спробі додати інформацію: ' + error + ' Спробуйте заповнити усі поля');
+    // }
+    this.doneWorkComponent.reset();
+    this.carDetailsComponent.reset();
+    // console.log('doneWorkComponent', this.doneWorkComponent);
+    // console.log('carDetailsComponent', this.carDetailsComponent);
   }
 
   createClient(form) {

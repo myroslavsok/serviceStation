@@ -63,6 +63,9 @@ export class DetailsInputComponent implements OnInit {
     this.onAddedDetailsInfo.emit(detailsInfo);
   }
 
-
+  reset() {
+    this.carDetails = [];
+    this.totalDetailCost = 0;
+  }
 
 }

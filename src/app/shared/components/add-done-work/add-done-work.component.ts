@@ -34,4 +34,10 @@ export class AddDoneWorkComponent implements OnInit {
     this.onCollectWorkInfo.emit(workInfo);
   }
 
+  reset() {
+    this.doneWork.nativeElement.value = '';
+    this.craftsManName.nativeElement.value = '';
+    this.costOfWork.nativeElement.value = '';
+  }
+
 }
