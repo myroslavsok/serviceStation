@@ -73,28 +73,17 @@ export class SearchClientComponent implements OnInit {
   }
 
   editClientCard(clientInfo): void {
-    const dialogRef = this.dialog.open(EditOrderCardDialogComponent, {
+    this.dialog.open(EditOrderCardDialogComponent, {
       width: '600px',
       data: clientInfo
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      // TODO: delete this stuff
-      // this.snackBar.open('Картка успішно редагована', 'Ок', {
-      //   duration: 2000,
-      // });
-      // this.animal = result;
     });
   }
 
   addOrderToOrderCard(clientInfo) {
-    const dialogRef = this.dialog.open(AddOrderDialogComponent, {
+    this.dialog.open(AddOrderDialogComponent, {
       width: '600px',
       data: clientInfo
     });
-  }
-
-  navigateToAddingClient() {
-    this.ngZone.run(() => this.router.navigate(['add-client'])).then();
   }
 
 }

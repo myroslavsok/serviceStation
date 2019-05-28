@@ -27,15 +27,6 @@
     <mat-button-toggle value="close">Виконанні</mat-button-toggle>
   </mat-button-toggle-group>
 
-<!--  ADD NEW ORDER BTN-->
-  <div>
-    <button
-      mat-raised-button
-      color="primary"
-      class="btn__add__new__order"
-      (click)="navigateToAddingClient()">Додати нового клієнта</button>
-  </div>
-
 <!--  ORDER CARD -->
   <mat-card *ngFor="let client of clients | filterBy: searchValue" class="client__order"
             [class.is__closed]="client.clientInfo.status === 'closed'">
