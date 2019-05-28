@@ -13,17 +13,11 @@
       <mat-card-content>
         <h3>Загальна інформація</h3>
         <div ngModelGroup="clientInfo" #clientInfo="ngModelGroup">
-          <mat-form-field>
-            <input matInput [matDatepicker]="dp" placeholder="Дата оформлення замовлення" [formControl]="date"
-                   name="date" #orderDate>
-            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-            <mat-datepicker #dp></mat-datepicker>
-          </mat-form-field>
+          <app-datepicker (onChooseDate)="chooseDate($event)"></app-datepicker>
           <mat-form-field>
             <input matInput placeholder="ПІБ клієнта" #clientName autocomplete="off" name="name" ngModel>
           </mat-form-field>
           <mat-form-field>
-            <!--            <input matInput placeholder="Номер телефону" #clientPhoneNumber autocomplete="off" value="333" name="phoneNumber" ngModel>-->
             <input
               matInput
               prefix="+38 "

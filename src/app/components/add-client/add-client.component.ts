@@ -5,33 +5,10 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
 
-// Imports for date
-import { MomentDateAdapter } from '@angular/material-moment-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import * as _moment from 'moment';
-const moment = _moment;
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'LL',
-  },
-  display: {
-    dateInput: 'LL',
-    monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
-
-
 @Component({
   selector: 'app-add-client',
   templateUrl: './add-client.component.html',
-  styleUrls: ['./add-client.component.scss'],
-  providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'uk-UR' },
-    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
-  ]
+  styleUrls: ['./add-client.component.scss']
 })
 
 export class AddClientComponent implements OnInit {
@@ -49,7 +26,7 @@ export class AddClientComponent implements OnInit {
   @ViewChild('carMarque') carMarque: ElementRef;
   @ViewChild('detailName') detailName: ElementRef;
   @ViewChild('detailCost') detailCost: ElementRef;
-  @ViewChild('orderDate') orderDate: ElementRef;
+  orderDate;
 
 
   // Car's details
@@ -61,7 +38,6 @@ export class AddClientComponent implements OnInit {
 
   totalDetailCost = 0;
 
-  date = new FormControl(moment());
 
   ngOnInit() {
     this.crudDBService.getCarsArr(() => {
@@ -155,7 +131,7 @@ export class AddClientComponent implements OnInit {
       carInfo: form.value.carInfo,
       workInfo: form.value.workInfo
     };
-    client.clientInfo.date = this.orderDate.nativeElement.value;
+    client.clientInfo.date = this.orderDate;
     client.carInfo.marque = this.marqueControl.value;
     client.carInfo.model = this.modelControl.value;
     client.carInfo.details = this.carsDetails;
@@ -236,4 +212,7 @@ export class AddClientComponent implements OnInit {
     this.totalDetailCost = detailCost;
   }
 
+  chooseDate(chosenDate) {
+    this.orderDate = chosenDate;
+  }
 }
