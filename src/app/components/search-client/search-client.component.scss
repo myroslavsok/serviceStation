@@ -39,7 +39,7 @@
    border-top: 5px solid $material-blue-dark;
 
   .order__card__category__header {
-    margin-left: 15px;
+    margin: 25px 0 10px 15px;
   }
 
   .btn__edit__order__card,
@@ -56,16 +56,21 @@
     top: 110px;
   }
 
+  // EXPANSION PANEL
   .order__history__container {
-    width: 100%;
-    height: 200px;
-    overflow-y: auto;
-    border: 1px solid lightgrey;
-    border-radius: 4px;
-  }
+    .order {
+      margin: 20px 0;
+      .order__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .used__details__title {
+        margin-top: 35px;
+        margin-bottom: 0;
+      }
 
-  .expansion__panel {
-    margin: 20px 0;
+    }
   }
 
   .client__info__table tr td,

@@ -77,34 +77,38 @@
       </table>
 
       <h4 class="order__card__category__header">Історія виконаних робіт</h4>
-      <div class="order__history__container"></div>
-
-<!--      <mat-expansion-panel class="expansion__panel">-->
-<!--        <mat-expansion-panel-header>-->
-<!--          <mat-panel-title>Інформація про виконану роботу</mat-panel-title>-->
-<!--        </mat-expansion-panel-header>-->
-<!--        <b>Виконана робота (Вартість: {{ client.workInfo.workCost }} Грн)</b>-->
-<!--        <p>{{ client.workInfo.doneWork }}</p>-->
-<!--        <b>Використані деталі:</b>-->
-<!--        <table *ngIf="client.carInfo.details != undefined; else noDetails" class="detail__info__table">-->
-<!--          <tr>-->
-<!--            <th>Назва</th>-->
-<!--            <th>Ціна</th>-->
-<!--          </tr>-->
-<!--          <tr *ngFor="let detail of client.carInfo.details">-->
-<!--            <td>{{ detail.name }}</td>-->
-<!--            <td>{{ detail.cost }}</td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <td>Загальна вартість</td>-->
-<!--            <td>{{ client.workInfo.detailCost }} Грн</td>-->
-<!--          </tr>-->
-<!--        </table>-->
-<!--        <ng-template #noDetails>-->
-<!--          <p>Деталі не були використані</p>-->
-<!--        </ng-template>-->
-<!--      </mat-expansion-panel>-->
+      <mat-accordion class="order__history__container">
+        <mat-expansion-panel *ngFor="let order of client.orders" class="order" hideToggle>
+          <mat-expansion-panel-header class="order__header">
+            <mat-panel-title>Дата: &nbsp;{{ order.orderDate }}</mat-panel-title>
+            <mat-panel-description>Загільна ціна: {{ order.totalCost }} ГРН</mat-panel-description>
+            <span>Майстер: {{ order.workInfo.craftsManName }}</span>
+          </mat-expansion-panel-header>
+          <h3>Виконана робота</h3>
+          <p>{{ order.workInfo.doneWork }}</p>
+          <b>Вартість виконаної роботи: {{ order.totalCost }} ГРН</b>
+          <h3 class="used__details__title">Використані деталі:</h3>
+          <table *ngIf="order.carDetailsInfo.carDetails != undefined; else noDetails" class="detail__info__table">
+            <tr>
+              <th>Назва</th>
+              <th>Ціна</th>
+            </tr>
+            <tr *ngFor="let detail of order.carDetailsInfo.carDetails">
+              <td>{{ detail.name }}</td>
+              <td>{{ detail.cost }}</td>
+            </tr>
+            <tr>
+              <td>Загальна вартість деталей</td>
+              <td>{{ order.carDetailsInfo.totalDetailCost }} Грн</td>
+            </tr>
+          </table>
+          <ng-template #noDetails>
+            <p>Деталі не були використані</p>
+          </ng-template>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-card-content>
+
     <mat-card-actions class="control__panel">
       <button
         *ngIf="client.clientInfo.status === 'closed'; else newOrder"
