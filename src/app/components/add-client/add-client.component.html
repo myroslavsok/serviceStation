@@ -12,7 +12,7 @@
     <form (ngSubmit)="addClient(addClientForm)" #addClientForm="ngForm">
       <mat-card-content>
         <h3>Загальна інформація</h3>
-        <div ngModelGroup="clientInfo" #clientInfo="ngModelGroup">
+        <div class="client__info__container" ngModelGroup="clientInfo" #clientInfo="ngModelGroup">
           <app-datepicker (onChooseDate)="chooseDate($event)"></app-datepicker>
           <mat-form-field>
             <input matInput placeholder="ПІБ клієнта" #clientName autocomplete="off" name="name" ngModel>
@@ -33,7 +33,7 @@
         </div>
 
         <h3>Авто</h3>
-        <div ngModelGroup="carInfo" #carInfo="ngModelGroup">
+        <div class="car__info__container" ngModelGroup="carInfo" #carInfo="ngModelGroup">
           <mat-form-field>
             <input
               type="text"

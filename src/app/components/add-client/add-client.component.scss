@@ -15,13 +15,24 @@
   border-top: 5px solid $material-blue-dark;
 }
 
-div mat-form-field {
-  margin: 10px 20px;
+h3 {
+  margin-top: 35px ;
+}
+
+.client__info__container,
+.car__info__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  mat-form-field,
+  app-datepicker {
+    width: 30%;
+  }
 }
 
 .actions__panel {
   display: flex;
-
   .add__btn {
     margin-left: auto;
     color: white;
