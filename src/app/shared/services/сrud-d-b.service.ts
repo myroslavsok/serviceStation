@@ -10,7 +10,6 @@ export class СrudDBService {
 
   private dbPathCars = '/cars';
   private dbPathClients = '/clients';
-  private dbPathOrders = '/orders';
 
   carsList: AngularFireList<any> = null;
   cars: Array<Car> = null;
@@ -103,10 +102,8 @@ export class СrudDBService {
     this.updateClientInfo(key, updatedClient);
   }
 
-  addNewOrder(key: string, newOrder: {}): void {
-    this.firebase.object(this.dbPathClients + `/${key}${this.dbPathOrders}`)
-      .query.ref.push(newOrder)
-      .catch(error => this.handleError(error));
+  addNewOrder(): void {
+    alert('Works');
   }
 
   private handleError(error) {

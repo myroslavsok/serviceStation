@@ -36,10 +36,8 @@ export const MY_FORMATS = {
 
 export class AddClientComponent implements OnInit {
 
-  constructor(
-    private crudDBService: СrudDBService,
-    private snackBar: MatSnackBar
-  ) { }
+  constructor(private crudDBService: СrudDBService,
+              private snackBar: MatSnackBar) { }
 
   // public capitalLettersOnly = {'B': { pattern: new RegExp('^[A-Z\\d&Ñ]+$')}};
   marqueControl = new FormControl();
