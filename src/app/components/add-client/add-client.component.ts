@@ -105,6 +105,7 @@ export class AddClientComponent implements OnInit {
 
   chooseDate(chosenDate) {
     this.orderDate = chosenDate;
+    console.log('orderDate', this.orderDate);
   }
 
   collectWorkInfo(workInfo) {
@@ -123,7 +124,6 @@ export class AddClientComponent implements OnInit {
         duration: 2000,
       });
     }
-    console.log('form', addClientForm);
     let client = this.createClient(addClientForm);
     console.log('client', client);
     // this.addCarToDBIfNotExists(client.carInfo.marque, client.carInfo.model);

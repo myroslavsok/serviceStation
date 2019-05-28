@@ -1,10 +1,21 @@
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 
 // imports for date picker
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
 import {FormControl} from '@angular/forms';
+import {THIS_EXPR} from '@angular/compiler/src/output/output_ast';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -29,7 +40,7 @@ export const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
   ]
 })
-export class DatepickerComponent {
+export class DatepickerComponent implements AfterViewInit {
 
   @Output() onChooseDate = new EventEmitter<string>();
   @ViewChild('orderDate') orderDate: ElementRef;
@@ -37,10 +48,13 @@ export class DatepickerComponent {
 
   constructor() { }
 
+  ngAfterViewInit() {
+    this.chooseDate();
+  }
+
   chooseDate() {
     const dateValue = this.orderDate.nativeElement.value;
     this.onChooseDate.emit(dateValue);
-    console.log('[datepicker - choose date]', this.orderDate.nativeElement.value);
   }
 
 }

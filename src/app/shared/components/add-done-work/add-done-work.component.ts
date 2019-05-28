@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-add-done-work',
@@ -6,7 +6,7 @@ import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/c
   styleUrls: ['./add-done-work.component.scss']
 })
 
-export class AddDoneWorkComponent {
+export class AddDoneWorkComponent implements OnInit {
 
   @ViewChild('doneWork') doneWork: ElementRef;
   @ViewChild('costOfWork') costOfWork: ElementRef;
@@ -15,12 +15,20 @@ export class AddDoneWorkComponent {
 
   constructor() { }
 
+  ngOnInit() {
+    this.collectWorkInfo();
+  }
+
   collectWorkInfo() {
+    let costOfWork = this.costOfWork.nativeElement.value;
+    if (!isNaN(+costOfWork)) {
+      costOfWork = 0;
+    }
     const workInfo = {
       doneWork: this.doneWork.nativeElement.value,
-      costOfWork: this.costOfWork.nativeElement.value,
+      costOfWork: costOfWork,
       craftsManName: this.craftsManName.nativeElement.value
-    }
+    };
     this.onCollectWorkInfo.emit(workInfo);
   }
 

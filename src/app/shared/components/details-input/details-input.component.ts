@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {CarDetail} from '../../models/CarDetail';
 
@@ -7,7 +7,7 @@ import {CarDetail} from '../../models/CarDetail';
   templateUrl: './details-input.component.html',
   styleUrls: ['./details-input.component.scss']
 })
-export class DetailsInputComponent {
+export class DetailsInputComponent implements OnInit {
 
   @ViewChild('detailName') detailName: ElementRef;
   @ViewChild('detailCost') detailCost: ElementRef;
@@ -16,6 +16,10 @@ export class DetailsInputComponent {
   @Output() onAddedDetailsInfo = new EventEmitter<any>();
 
   constructor(private snackBar: MatSnackBar) { }
+
+  ngOnInit() {
+    this.outputDetailsInfo();
+  }
 
   addNewDetail(detailName, detailCost) {
     if (!detailName.value || !detailCost.value) {
