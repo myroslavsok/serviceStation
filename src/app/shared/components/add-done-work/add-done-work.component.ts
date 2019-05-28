@@ -20,18 +20,30 @@ export class AddDoneWorkComponent implements OnInit {
   }
 
   collectWorkInfo() {
-    let costOfWork = this.costOfWork.nativeElement.value;
+    let workInfo = {
+      doneWork: this.doneWork.nativeElement.value,
+      costOfWork: this.costOfWork.nativeElement.value,
+      craftsManName: this.craftsManName.nativeElement.value
+    };
+    workInfo = this.setDefaultToEmptyFields(workInfo);
+    this.onCollectWorkInfo.emit(workInfo);
+  }
+
+  private setDefaultToEmptyFields(workInfo) {
+    let costOfWork = workInfo.costOfWork;
     costOfWork = costOfWork.replace(/\s/g, '');
     costOfWork =  parseInt(costOfWork, 10);
     if (isNaN(costOfWork)) {
       costOfWork = 0;
     }
-    const workInfo = {
-      doneWork: this.doneWork.nativeElement.value,
-      costOfWork: costOfWork,
-      craftsManName: this.craftsManName.nativeElement.value
-    };
-    this.onCollectWorkInfo.emit(workInfo);
+    workInfo.costOfWork = costOfWork;
+    if (!workInfo.doneWork.trim()) {
+      workInfo.doneWork = 'Не вказано';
+    }
+    if (!workInfo.craftsManName) {
+      workInfo.craftsManName = 'Не вказано';
+    }
+    return workInfo;
   }
 
   reset() {

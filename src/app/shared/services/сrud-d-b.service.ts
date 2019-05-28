@@ -102,6 +102,11 @@ export class СrudDBService {
     this.updateClientInfo(key, updatedClient);
   }
 
+  addNewOrderToClientHistory(clientWithNewOrdeer): void {
+    const key  = clientWithNewOrdeer.key;
+    this.updateClientInfo(key, clientWithNewOrdeer);
+  }
+
   addNewOrder(): void {
     alert('Works');
   }

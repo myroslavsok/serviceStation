@@ -4,10 +4,16 @@
   <app-datepicker (onChooseDate)="chooseDate($event)"></app-datepicker>
 
   <h3>Що ремонтуємо?</h3>
-  <app-add-done-work (onCollectWorkInfo)="collectWorkInfo($event)"></app-add-done-work>
+  <app-add-done-work
+    #doneWorkComponent
+    (onCollectWorkInfo)="collectWorkInfo($event)">
+  </app-add-done-work>
 
   <h3>Додати запчастини</h3>
-  <app-details-input (onAddedDetailsInfo)="applyDetailsInfo($event)"></app-details-input>
+  <app-details-input
+    #carDetailsComponent
+    (onAddedDetailsInfo)="applyDetailsInfo($event)">
+  </app-details-input>
 </div>
 
 <div mat-dialog-actions>

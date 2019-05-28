@@ -1,5 +1,6 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {СrudDBService} from '../../../../shared/services/сrud-d-b.service';
 
 @Component({
   selector: 'app-add-order-dialog',
@@ -8,38 +9,40 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 })
 export class AddOrderDialogComponent {
 
-  orderDate = '';
-  carDetailsInfo = {};
-  workInfo = {};
-
+  newOrder = {} as any;
 
   constructor(
     public dialogRef: MatDialogRef<AddOrderDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public orderInfo
+    @Inject(MAT_DIALOG_DATA) public clientInfo,
+    private crudDBService: СrudDBService,
   ) { }
 
+  @ViewChild('doneWorkComponent') doneWorkComponent;
+  @ViewChild('carDetailsComponent') carDetailsComponent;
+
   chooseDate(chosenDate) {
-    this.orderDate = chosenDate;
-    console.log('[add-order-dialog, chooseDate]', this.chooseDate);
+    this.newOrder.orderDate = chosenDate;
   }
 
   applyDetailsInfo(carDetailsInfo) {
-    this.carDetailsInfo = carDetailsInfo;
-    console.log('[add-order-dialog, applyDetailsInfo]', this.carDetailsInfo);
+    this.newOrder.carDetailsInfo = carDetailsInfo;
   }
 
   collectWorkInfo(workInfo) {
-    this.workInfo = workInfo;
-    console.log('[add-order-dialog, collectWorkInfo]', this.workInfo);
+    this.newOrder.workInfo = workInfo;
+  }
+
+  confirmAddingOrder() {
+    this.newOrder.totalCost = this.newOrder.workInfo.costOfWork + this.newOrder.carDetailsInfo.totalDetailCost;
+    this.clientInfo.orders.push(this.newOrder);
+    this.crudDBService.addNewOrderToClientHistory(this.clientInfo);
+    this.doneWorkComponent.reset();
+    this.carDetailsComponent.reset();
+    console.log('clientInfo', this.clientInfo);
   }
 
   cancelAddingOrder() {
     this.dialogRef.close();
-  }
-
-  confirmAddingOrder() {
-    console.log('orderInfo', this.orderInfo);
-    // this.crudDBService.updateGeneralUserInfo(this.orderInfo);
   }
 
 }
