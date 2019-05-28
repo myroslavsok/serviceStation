@@ -21,7 +21,9 @@ export class AddDoneWorkComponent implements OnInit {
 
   collectWorkInfo() {
     let costOfWork = this.costOfWork.nativeElement.value;
-    if (!isNaN(+costOfWork)) {
+    costOfWork = costOfWork.replace(/\s/g, '');
+    costOfWork =  parseInt(costOfWork, 10);
+    if (isNaN(costOfWork)) {
       costOfWork = 0;
     }
     const workInfo = {

@@ -125,20 +125,19 @@ export class AddClientComponent implements OnInit {
       });
     }
     let client = this.createClient(addClientForm);
-    console.log('client', client);
-    // this.addCarToDBIfNotExists(client.carInfo.marque, client.carInfo.model);
-    // client = this.setDefaultValuesForEmptyFormFields(client);
-    // this.clearFormAndFiledValues(addClientForm);
-    // console.log('[add-client] client = ', client);
-    // try {
-    //   this.crudDBService.addClient(client);
-    //   this.snackBar.open('Клієнт успішно доданий до бази', 'Ок', {
-    //     duration: 2000,
-    //   });
-    // } catch (error) {
-    //   console.log(error);
-    //   return alert('Помилка при спробі додати інформацію про замовлення клієнта: ' + error + ' Спробуйте заповнити усі поля');
-    // }
+    this.addCarToDBIfNotExists(client.carInfo.marque, client.carInfo.model);
+    client = this.setDefaultValuesForEmptyFormFields(client);
+    this.clearFormAndFiledValues(addClientForm);
+    console.log('[add-client] client = ', client);
+    try {
+      this.crudDBService.addClient(client);
+      this.snackBar.open('Клієнт успішно доданий до бази', 'Ок', {
+        duration: 2000,
+      });
+    } catch (error) {
+      console.log(error);
+      return alert('Помилка при спробі додати інформацію: ' + error + ' Спробуйте заповнити усі поля');
+    }
   }
 
   createClient(form) {
@@ -157,21 +156,6 @@ export class AddClientComponent implements OnInit {
     client.orders[0].totalCost = +client.orders[0].workInfo.costOfWork + +client.orders[0].carDetailsInfo.totalDetailCost;
     client.clientInfo.status = 'open';
     return client;
-
-    // const client = {
-    //   clientInfo: form.value.clientInfo,
-    //   carInfo: form.value.carInfo,
-    //   workInfo: form.value.workInfo
-    // };
-    // client.clientInfo.date = this.orderDate;
-    // client.carInfo.marque = this.marqueControl.value;
-    // client.carInfo.model = this.modelControl.value;
-    // if (!client.workInfo.workCost) {
-    //   client.workInfo.workCost = 0;
-    // }
-    // client.workInfo.totalCost = +client.workInfo.workCost + +client.workInfo.detailCost;
-    // client.clientInfo.status = 'open';
-    // return client;
   }
 
   setDefaultValuesForEmptyFormFields(client) {
@@ -184,7 +168,6 @@ export class AddClientComponent implements OnInit {
         }
       }
     }
-    console.log('Set defaults client', client);
     return client;
   }
 
