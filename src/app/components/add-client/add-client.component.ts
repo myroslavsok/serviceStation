@@ -28,6 +28,7 @@ export class AddClientComponent implements OnInit {
   @ViewChild('detailCost') detailCost: ElementRef;
   orderDate;
   workInfo;
+  carDetailsInfo;
 
   // Car's details
   carsDetails: Array<{
@@ -219,5 +220,10 @@ export class AddClientComponent implements OnInit {
   collectWorkInfo(workInfo) {
     this.workInfo = workInfo;
     console.log('workInfo', this.workInfo);
+  }
+
+  applyDetailsInfo(carDetailsInfo) {
+    this.carDetailsInfo = carDetailsInfo;
+    console.log('carDetailsInfo', this.carDetailsInfo);
   }
 }
