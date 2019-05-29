@@ -31,15 +31,27 @@ export class AddClientComponent implements OnInit {
   workInfo;
   carDetailsInfo;
 
-
+  occupiedVincodes = [];
 
   ngOnInit() {
+    this.getCars();
+    this.getOccupiedVinCodes();
+  }
+
+  getCars() {
     this.crudDBService.getCarsArr(() => {
       this.filteredOptionsMarque = this.marqueControl.valueChanges
         .pipe(
           startWith(''),
           map(value => this._filterMarque(value))
         );
+    });
+  }
+
+  getOccupiedVinCodes() {
+    this.crudDBService.getClientsArr(() => {
+      this.occupiedVincodes = this.crudDBService.clients.map(client => client.carInfo.vinCode.toLowerCase().trim());
+      console.log('[add-client] occupied vin-codes', this.occupiedVincodes);
     });
   }
 
@@ -126,6 +138,15 @@ export class AddClientComponent implements OnInit {
       return this.snackBar.open(`Поле "Vin-код" є обов'язковим`, 'Ок', {
         duration: 2000,
       });
+    }
+    const newVinCode = addClientForm.value.carInfo.vinCode.toLowerCase().trim();
+    for (const occupiedVincode of this.occupiedVincodes) {
+      if (newVinCode === occupiedVincode) {
+        console.log('works', occupiedVincode + ' == ' + newVinCode);
+        return this.snackBar.open(`Картка з таким Vin-кодом уже існує. Спробуйте знайти її у вікні пошуку`, 'Ок', {
+          duration: 4000,
+        });
+      }
     }
     let client = this.createClient(addClientForm);
     this.addCarToDBIfNotExists(client.carInfo.marque, client.carInfo.model);
