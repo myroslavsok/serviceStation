@@ -86,7 +86,7 @@
           </mat-expansion-panel-header>
           <h3>Виконана робота</h3>
           <p>{{ order.workInfo.doneWork }}</p>
-          <b>Вартість виконаної роботи: {{ order.totalCost }} ГРН</b>
+          <b>Вартість виконаної роботи: {{ order.workInfo.costOfWork }} ГРН</b>
           <h3 class="used__details__title">Використані деталі:</h3>
           <table *ngIf="order.carDetailsInfo.carDetails != undefined; else noDetails" class="detail__info__table">
             <tr>
