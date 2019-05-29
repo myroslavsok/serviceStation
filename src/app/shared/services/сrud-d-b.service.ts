@@ -2,8 +2,8 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Injectable} from '@angular/core';
 
 // Models
-import {Car} from '../models/car';
-import {CarNgListElem} from '../models/carNgListElem';
+import {Car} from '../models/Car';
+import {CarNgListElem} from '../models/CarNgListElem';
 
 @Injectable()
 export class СrudDBService {
@@ -30,11 +30,11 @@ export class СrudDBService {
       .catch(error => this.handleError(error));
   }
 
-  addModelToCar(car: { key: string, model: Array<string> }): void {
+  addModelToCar(car: { key: string, models: Array<string> }): void {
     // console.log('[Service] uppdating models', car);
     this.carsList
       .update(car.key, {
-        model: car.model
+        models: car.models
       })
       .catch(error => this.handleError(error));
   }

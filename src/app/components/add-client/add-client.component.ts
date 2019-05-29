@@ -102,8 +102,7 @@ export class AddClientComponent implements OnInit {
     } else if (isCarMarqueNew__key && !isCarModelNew) {
       // console.log('adding model to', isCarMarqueNew__key);
       let existingModels = [];
-      this.crudDBService.cars
-        .forEach(item => {
+      this.crudDBService.cars.forEach(item => {
           if (item.key === isCarMarqueNew__key) {
             existingModels = item.models;
           }
@@ -111,12 +110,12 @@ export class AddClientComponent implements OnInit {
       existingModels.push(model);
       this.crudDBService.addModelToCar({
         key: isCarMarqueNew__key,
-        model: existingModels
+        models: existingModels
       });
     } else if (!isCarMarqueNew__key) {
       this.crudDBService.addCar({
         marque: marque,
-        model: [model]
+        models: [model]
       });
     }
   }
